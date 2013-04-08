@@ -11,3 +11,9 @@
 *.lai
 *.la
 *.a
+
+# Visual Studio + Code::Blocks
+*.suo
+*.depend
+*.layout
+*.vcxproj.filters
