@@ -72,11 +72,17 @@ GenericMatrix<N, M, T> GenericMatrix<M, N, T>::transpose() const
 template<unsigned int M, unsigned int N, typename T>
 std::ostream& operator<<(std::ostream& os, const GenericMatrix<M, N, T>& m)
 {
-	os << std::setfill(' ') << std::setw(10) << std::endl;
 	for(unsigned int row = 0;row < M;++row)
 	{
+	    os << ((row == 0) ? "/" : ((row == M-1) ? "\\" : "|"));
 		for(unsigned int col = 0;col < N;++col)
-			os << m(row,col) << std::setfill(' ') << std::setw(10);
+        {
+            os << m(row,col) << std::setfill(' ');
+			if (col != N -1)
+                os << std::setw(6);
+        }
+
+        os << ((row == 0) ? "\\" : ((row == M-1) ? "/" : "|"));
 		os << std::endl;
 	}
 	os << std::setfill(' ') << std::setw(0);
