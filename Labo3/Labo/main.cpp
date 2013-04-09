@@ -10,6 +10,7 @@ using namespace std;
 
 int main()
 {
+    /* /!\ La matrice doit être régulière (inversible) ! Sinon le système ne peut être résolu /!\ */
 	SquareMatrix<3,double> matrix(0.0);
 	GenericMatrix<3,1,double> constants(0.0);
     GenericMatrix<3,1,string> variables(" ");
