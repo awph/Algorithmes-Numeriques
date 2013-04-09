@@ -34,6 +34,11 @@
 		</Compiler>
 		<Unit filename="include/genericmatrix.h" />
 		<Unit filename="include/genericmatrix.tpp" />
+		<Unit filename="include/linearsystemsolver.h" />
+		<Unit filename="include/linearsystemsolver.tpp" />
+		<Unit filename="include/solution.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
 		<Unit filename="include/squarematrix.h" />
 		<Unit filename="include/squarematrix.tpp" />
 		<Unit filename="main.cpp" />
@@ -41,6 +46,15 @@
 			<code_completion />
 			<envvars />
 			<debugger />
+			<DoxyBlocks>
+				<comment_style block="0" line="0" />
+				<doxyfile_project />
+				<doxyfile_build />
+				<doxyfile_warnings />
+				<doxyfile_output />
+				<doxyfile_dot />
+				<general />
+			</DoxyBlocks>
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>
