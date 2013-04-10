@@ -16,7 +16,7 @@ int main()
 	GenericMatrix<3,1,double> constants(0.0);
     GenericMatrix<3,1,string> variables(" ");
 
-	matrix(0,0) = 1.009;
+	matrix(0,0) = -8.009;
 	matrix(0,1) = -1.00001;
 	matrix(0,2) = 2.2222;
 	constants(0,0) = 8.56746;

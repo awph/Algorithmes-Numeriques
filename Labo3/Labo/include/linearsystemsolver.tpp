@@ -68,7 +68,7 @@ void LinearSystemSolver<N,T>::triangularisation()
         //On cherche le pivot
         T max = coefficientsAndConstants(i,i);
         for(unsigned int j = i+1; j < N; ++j)//Lignes -> N
-            if(max < coefficientsAndConstants(j,i))
+            if(fabs(static_cast<double>(max)) < static_cast<double>(coefficientsAndConstants(j,i)))
             {
                 max = coefficientsAndConstants(i,i);
                 imax = j;
