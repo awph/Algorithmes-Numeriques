@@ -25,13 +25,3 @@ SquareMatrix<N,T>::~SquareMatrix()
 {
 
 }
-
-/*------------------------------------------------------------------*\
-|*					Functions					*|
-\*------------------------------------------------------------------*/
-
-template<unsigned int N, typename T>
-const T SquareMatrix<N,T>::determinant() const
-{
-	return this->m_values[0][0];//Oui sous CB faut foutre ce this-> sinon ça marche pas (et dire qu'après on crache sur VS...)
-}

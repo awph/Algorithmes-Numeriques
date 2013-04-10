@@ -13,8 +13,9 @@ coefficientsAndConstants(concatenateMatrix(coefficients,constants)),isResolvable
     for(unsigned int i = 0;i < N; ++i)
         solutions[i] = new Solution<T>(variables(i,0));
 
-    triangularisation();
-    findSolution();
+    partialPivoting();
+    forwardElimination();
+    backSubstitution();
 }
 
 template<unsigned int N, typename T>
@@ -41,7 +42,7 @@ std::ostream& operator<<(std::ostream& os, const LinearSystemSolver<N, T>& lss)
     os << lss.variables << std::endl;
     os << "Constantes : " << std::endl;
     os << lss.constants << std::endl;
-    os << "Matrice triangualisée : " << std::endl;
+    os << "Matrice triangualisée avec les constantes : " << std::endl;
     os << lss.coefficientsAndConstants << std::endl;
     os << "Solutions : " << std::endl;
 
@@ -60,25 +61,28 @@ std::ostream& operator<<(std::ostream& os, const LinearSystemSolver<N, T>& lss)
 
 //Méthode du pivot partiel
 template<unsigned int N, typename T>
-void LinearSystemSolver<N,T>::triangularisation()
+void LinearSystemSolver<N,T>::partialPivoting()
 {
     int imax = 0;
     for(unsigned int i = 0;i < N-1; ++i)//Lignes -> N, -1 car pas besoin d'aller dernière ligne (pivot implicite)
     {
         //On cherche le pivot
-        T max = coefficientsAndConstants(i,i);
+        imax = i;
         for(unsigned int j = i+1; j < N; ++j)//Lignes -> N
-            if(fabs(static_cast<double>(max)) < static_cast<double>(coefficientsAndConstants(j,i)))
-            {
-                max = coefficientsAndConstants(i,i);
+            if(fabs(static_cast<double>(coefficientsAndConstants(imax,i))) < static_cast<double>(coefficientsAndConstants(j,i)))
                 imax = j;
-            }
 
         //On intervertit les lignes
         for(unsigned int j = 0; j < N + 1; ++j)//Colonnes -> N+1
             std::swap(coefficientsAndConstants(i,j),coefficientsAndConstants(imax,j));
+    }
+}
 
-        T factor;
+template<unsigned int N, typename T>
+void LinearSystemSolver<N,T>::forwardElimination()
+{
+    T factor;
+    for(unsigned int i = 0;i < N-1; ++i)//Lignes -> N, -1 car pas besoin d'aller dernière ligne (pivot implicite)
         //On effectue les divisions & soustractions
         for(unsigned int j = i+1;j < N; ++j)//Lignes -> N
         {
@@ -86,29 +90,24 @@ void LinearSystemSolver<N,T>::triangularisation()
             for(unsigned int k = i; k < N + 1; ++k)//Colonnes -> N+1
                 coefficientsAndConstants(j,k) -= factor * coefficientsAndConstants(i,k);
          }
-    }
 }
 
 template<unsigned int N, typename T>
-void LinearSystemSolver<N,T>::findSolution()
+void LinearSystemSolver<N,T>::backSubstitution()
 {
     double det = coefficientsAndConstants(0,0);
     for(unsigned int i = 1;i < N; ++i)
         det *= coefficientsAndConstants(i,i);
 
-    if(fabs(det-0) < std::numeric_limits<double>::epsilon())
-        isResolvable = false;
+    isResolvable = (fabs(det-0) > std::numeric_limits<double>::epsilon());//!=0
 
     if(isResolvable)
-    {
-        T temp;
         for(int i= N-1;i >= 0; --i)
         {
-            temp = 0;
-            for(unsigned int j = i;j <= N-1; ++j)
+            T temp = 0;
+            for(unsigned int j = i;j < N; ++j)
                 temp += coefficientsAndConstants(i,j)*solutions[j]->getData();
 
             solutions[i]->setData((coefficientsAndConstants(i,N)-temp)/coefficientsAndConstants(i,i));
         }
-    }
 }

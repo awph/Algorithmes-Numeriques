@@ -8,34 +8,86 @@
 
 using namespace std;
 
+void clear()
+{
+	cout << string(50, '\n' );
+}
+
+void printHeader()
+{
+    cout << "|===========================================|" << endl
+         << "|Programme réalisé par :                    |" << endl
+         << "|                        - Diego Antognini  |" << endl
+         << "|                        - Alexandre Perez  |" << endl
+         << "|                        - Sebastien Vaucher|" << endl
+         << "|===========================================|" << endl;
+}
+
 int main()
 {
+    const unsigned int NB_EQUATIONS = 3;
     setlocale(LC_ALL, "frs");
-    /* /!\ La matrice doit être régulière (inversible) ! Sinon le système ne peut être résolu /!\ */
-	SquareMatrix<3,double> matrix(0.0);
-	GenericMatrix<3,1,double> constants(0.0);
-    GenericMatrix<3,1,string> variables(" ");
+    printHeader();
 
-	matrix(0,0) = -8.009;
-	matrix(0,1) = -1.00001;
-	matrix(0,2) = 2.2222;
-	constants(0,0) = 8.56746;
+    cout << endl << "Pour modifier le nombre d'équations, il faut modifier la constante dans le main,";
+    cout << "car il est impossible d'instancier une classe template avec une constante qui n'a pas été instanciée durant la compilation !" << endl << endl;
 
-	matrix(1,0) = 1.009;
-	matrix(1,1) = -1.00901;
-	matrix(1,2) = 2.2222;
-	constants(1,0) = 8.56746;
+    int choix = 1;
+    do
+    {
+        /* /!\ La matrice doit être régulière (inversible) ! Sinon le système ne peut être résolu /!\ */
+        SquareMatrix<
+                    NB_EQUATIONS,
+                    double
+                    > coefficients(0.0);
 
-	matrix(2,0) = 0;
-	matrix(2,1) = 2;
-	matrix(2,2) = -1;
-	constants(2,0) = -3;
+        GenericMatrix<
+                    NB_EQUATIONS,
+                    1,
+                    double> constants(0.0);
 
-    variables(0,0) = "x";
-    variables(1,0) = "y";
-    variables(2,0) = "z";
+        GenericMatrix<
+                    NB_EQUATIONS,
+                    1,
+                    string> variables(" ");
 
-    LinearSystemSolver<3,double> solver(matrix,constants,variables);
-    cout << solver << endl;
+        cout << "Entrez les noms des variables : " << endl;
+        string variable;
+        for(unsigned int i = 0;i < NB_EQUATIONS; ++i)
+        {
+            cout << "Variable " << (i+1) << " : ";
+            cin >> variable;
+            variables(i,0) = variable;
+        }
+
+        for(unsigned int i = 0;i < NB_EQUATIONS; ++i)
+        {
+            clear();
+            cout << "Entrez les coefficients et la constante de l'équation n° " << (i+1) << " : " << endl;
+
+            double valeur;
+            for(unsigned int j = 0;j < NB_EQUATIONS; ++j)
+            {
+                cout << "Coefficient de " << variables(j,0) << " : ";
+                cin >> valeur;
+                coefficients(i,j) = valeur;
+            }
+            cout << "Constante : ";
+            cin >> valeur;
+            constants(i,0) = valeur;
+        }
+
+        clear();
+        LinearSystemSolver<
+                        NB_EQUATIONS,
+                        double> solver(coefficients,constants,variables);
+        cout << solver << endl << endl;
+
+        cout << "Voulez-vous résoudre un autre système linéaire ? " << endl <<"1) Oui" << endl << "2) Non" << endl << endl << "Choix : ";
+        cin >> choix;
+        clear();
+    }
+    while(choix == 1);
+
 	return 0;
 }

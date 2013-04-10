@@ -12,8 +12,6 @@ public:
         explicit SquareMatrix(const T tab[N][N]);
 		SquareMatrix(const SquareMatrix& m);
 		virtual ~SquareMatrix();
-
-		const T determinant() const;
 };
 
 #include "squarematrix.tpp"
