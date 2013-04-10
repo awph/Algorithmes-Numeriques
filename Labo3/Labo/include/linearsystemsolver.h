@@ -41,6 +41,7 @@ class LinearSystemSolver
         void triangularisation();
         void findSolution();
 
+        bool isResolvable;
         SquareMatrix<N,T> coefficients;
         GenericMatrix<N,1,T> constants;
         GenericMatrix<N,1,std::string> variables;

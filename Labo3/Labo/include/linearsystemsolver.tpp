@@ -1,11 +1,14 @@
 #include <iostream>
+#include <cmath>
+#include <limits>
 
 /*------------------------------------------------------------------*\
 |*			    Constructors & Destructor				   *|
 \*------------------------------------------------------------------*/
 template<unsigned int N, typename T>
 LinearSystemSolver<N,T>::LinearSystemSolver(const SquareMatrix<N,T>& coefficients,const GenericMatrix<N,1,T>& constants,const GenericMatrix<N,1,std::string>& variables)
-:coefficients(coefficients),constants(constants),variables(variables),coefficientsAndConstants(concatenateMatrix(coefficients,constants))
+:coefficients(coefficients),constants(constants),variables(variables),
+coefficientsAndConstants(concatenateMatrix(coefficients,constants)),isResolvable(true)
 {
     for(unsigned int i = 0;i < N; ++i)
         solutions[i] = new Solution<T>(variables(i,0));
@@ -38,35 +41,22 @@ std::ostream& operator<<(std::ostream& os, const LinearSystemSolver<N, T>& lss)
     os << lss.variables << std::endl;
     os << "Constantes : " << std::endl;
     os << lss.constants << std::endl;
-    os << "Coefficients + Constants : " << std::endl;
+    os << "Matrice triangualisée : " << std::endl;
     os << lss.coefficientsAndConstants << std::endl;
     os << "Solutions : " << std::endl;
-    for(unsigned int i = 0;i < N; ++i)
-        os << lss.solutions[i]->getKey() << " = " << lss.solutions[i]->getData() << std::endl;
+
+    if(lss.isResolvable)
+        for(unsigned int i = 0;i < N; ++i)
+            os << lss.solutions[i]->getKey() << " = " << lss.solutions[i]->getData() << std::endl;
+    else
+        os << "Pas de solution, car il s'agit d'un système linéairement dépendant !" << std::endl;
+
     return os;
 }
 
 /*------------------------------------------------------------------*\
 |*					Normal			          	            *|
 \*------------------------------------------------------------------*/
-
-/*
-Aussi appelé scaled pivoting (cf wiki)
-
-    Le but du pivotage partiel est d'avoir comme premier pivot, le nombre le plus grand.
-    Le premier pivot se situer à A11 donc on va intervetir les lignes afin d'obtenir
-    la valeur la plus grande tout en haut. Le pivot partiel a une complexité de n2 et le
-    pivot complet une de n3.
-
-    L'utilisation du pivot devient nécessaire, lorsque l'on désire obtenir une stabilité numérique.
-    Pour cela, on peut choisir un le pivot complet et le partiel. L'avantage du partiel c'est que celui-ci
-    a une complexité de O(n2) tandis que le complet O(n3). Le pivot partiel est généralement suffisant pour obtenir
-    cette stabilité mais dans certains systèmes d'équations, il vaudrait mieux utiliser le pivot complet.
-    Il est intéressant d'utiliser le pivot partiel pour obtenir une stabilité numérique
-
-    Une variation du pivot partiel est le scaled partial pivoting où la méthode consiste à prendre la valeur la plus grande
-    de la colonne.
-*/
 
 //Méthode du pivot partiel
 template<unsigned int N, typename T>
@@ -102,13 +92,23 @@ void LinearSystemSolver<N,T>::triangularisation()
 template<unsigned int N, typename T>
 void LinearSystemSolver<N,T>::findSolution()
 {
-    T temp;
-    for(int i= N-1;i >= 0; --i)
-    {
-        temp = 0;
-        for(unsigned int j = i;j <= N-1; ++j)
-            temp += coefficientsAndConstants(i,j)*solutions[j]->getData();
+    double det = coefficientsAndConstants(0,0);
+    for(unsigned int i = 1;i < N; ++i)
+        det *= coefficientsAndConstants(i,i);
 
-        solutions[i]->setData((coefficientsAndConstants(i,N)-temp)/coefficientsAndConstants(i,i));
+    if(fabs(det-0) < std::numeric_limits<double>::epsilon())
+        isResolvable = false;
+
+    if(isResolvable)
+    {
+        T temp;
+        for(int i= N-1;i >= 0; --i)
+        {
+            temp = 0;
+            for(unsigned int j = i;j <= N-1; ++j)
+                temp += coefficientsAndConstants(i,j)*solutions[j]->getData();
+
+            solutions[i]->setData((coefficientsAndConstants(i,N)-temp)/coefficientsAndConstants(i,i));
+        }
     }
 }
