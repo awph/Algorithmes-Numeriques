@@ -10,8 +10,7 @@ LinearSystemSolver<N,T>::LinearSystemSolver(const SquareMatrix<N,T>& coefficient
     for(unsigned int i = 0;i < N; ++i)
         solutions[i] = new Solution<T>(variables(i,0));
 
-    scaledPartialPivoting();
-    transformToTriangular();
+    triangularisation();
     findSolution();
 }
 
@@ -23,11 +22,11 @@ LinearSystemSolver<N,T>::~LinearSystemSolver()
 }
 
 /*------------------------------------------------------------------*\
-|*					Functions					*|
+|*					Functions					                    *|
 \*------------------------------------------------------------------*/
 
 /*------------------------------------------------------------------*\
-|*					Friends			          	            *|
+|*					Friends			          	                    *|
 \*------------------------------------------------------------------*/
 
 template<unsigned int N, typename T>
@@ -68,31 +67,36 @@ Aussi appelé scaled pivoting (cf wiki)
     Une variation du pivot partiel est le scaled partial pivoting où la méthode consiste à prendre la valeur la plus grande
     de la colonne.
 */
-template<unsigned int N, typename T>
-void LinearSystemSolver<N,T>::scaledPartialPivoting()
-{
-    for(int i = N-1;i > 0; --i)
-        if(coefficientsAndConstants(i-1,0) < coefficientsAndConstants(i,0))
-            for(unsigned int j = 0;j <= N; ++j)
-            {
-                std::swap(coefficientsAndConstants(i,j),coefficientsAndConstants(i-1,j));
-                std::swap(solutions[i],solutions[i-1]);//On change les variables d'ordre afin de les avoir aussi dans le bonne ordre
-            }
-}
 
+//Méthode du pivot partiel
 template<unsigned int N, typename T>
-void LinearSystemSolver<N,T>::transformToTriangular()
+void LinearSystemSolver<N,T>::triangularisation()
 {
-    T old;
-    for(unsigned int i = 0;i < N-1; ++i)
-        for(unsigned int j = i; j < N-1; ++j)
+    int imax = 0;
+    for(unsigned int i = 0;i < N-1; ++i)//Lignes -> N, -1 car pas besoin d'aller dernière ligne (pivot implicite)
+    {
+        //On cherche le pivot
+        T max = coefficientsAndConstants(i,i);
+        for(unsigned int j = i+1; j < N; ++j)//Lignes -> N
+            if(max < coefficientsAndConstants(j,i))
+            {
+                max = coefficientsAndConstants(i,i);
+                imax = j;
+            }
+
+        //On intervertit les lignes
+        for(unsigned int j = 0; j < N + 1; ++j)//Colonnes -> N+1
+            std::swap(coefficientsAndConstants(i,j),coefficientsAndConstants(imax,j));
+
+        T factor;
+        //On effectue les divisions & soustractions
+        for(unsigned int j = i+1;j < N; ++j)//Lignes -> N
         {
-            //On garde l'ancienne valeur avant les changements
-            old = coefficientsAndConstants(j+1,i)/coefficientsAndConstants(i,i);//=A21/A11
-            for(unsigned int k = 0;k <= N; ++k)
-                //Comme dans le cours, par exemple A22 = A22 - A21/A11*A12, avec i=1,j=1,k=2
-                coefficientsAndConstants(j+1,k) -= old*coefficientsAndConstants(i,k);//=A12
-        }
+            factor = coefficientsAndConstants(j,i) / coefficientsAndConstants(i,i);
+            for(unsigned int k = i; k < N + 1; ++k)//Colonnes -> N+1
+                coefficientsAndConstants(j,k) -= factor * coefficientsAndConstants(i,k);
+         }
+    }
 }
 
 template<unsigned int N, typename T>

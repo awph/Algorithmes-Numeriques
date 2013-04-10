@@ -74,18 +74,20 @@ std::ostream& operator<<(std::ostream& os, const GenericMatrix<M, N, T>& m)
 {
 	for(unsigned int row = 0;row < M;++row)
 	{
-	    os << ((row == 0) ? "/" : ((row == M-1) ? "\\" : "|"));
-		for(unsigned int col = 0;col < N;++col)
-        {
-            os << m(row,col) << std::setfill(' ');
-			if (col != N -1)
-                os << std::setw(6);
-        }
+	    os << std::left << std::setw(2) << ((row == 0) ? "/" : ((row == M-1) ? "\\" : "|"));
 
-        os << ((row == 0) ? "\\" : ((row == M-1) ? "/" : "|"));
-		os << std::endl;
+        if(N == 1)
+            os << std::internal << m(row,N-1);
+        else
+            for(unsigned int col = 0;col < N;++col)
+            {
+                os << std::setw(5) << std::internal << m(row,col);
+                if (col != N -1)
+                    os << std::setw(5) << "\t";
+            }
+
+        os << std::right << std::setw(2) << ((row == 0) ? "\\" : ((row == M-1) ? "/" : "|")) << std::endl;
 	}
-	os << std::setfill(' ') << std::setw(0);
 	return os;
 }
 

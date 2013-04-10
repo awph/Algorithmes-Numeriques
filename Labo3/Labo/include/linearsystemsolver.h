@@ -36,8 +36,9 @@ class LinearSystemSolver
         friend std::ostream& operator<<(std::ostream& os, const LinearSystemSolver<NN, TT>& lss);
 
     private:
-        void scaledPartialPivoting();
-        void transformToTriangular();
+        /*void scaledPartialPivoting();
+        void transformToTriangular();*/
+        void triangularisation();
         void findSolution();
 
         SquareMatrix<N,T> coefficients;
