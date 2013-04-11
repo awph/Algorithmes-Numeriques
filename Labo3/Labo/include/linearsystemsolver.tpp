@@ -56,10 +56,9 @@ std::ostream& operator<<(std::ostream& os, const LinearSystemSolver<N, T>& lss)
 }
 
 /*------------------------------------------------------------------*\
-|*					Normal			          	            *|
+|*					        Normal			          	            *|
 \*------------------------------------------------------------------*/
 
-//Méthode du pivot partiel
 template<unsigned int N, typename T>
 void LinearSystemSolver<N,T>::partialPivoting()
 {
@@ -95,11 +94,12 @@ void LinearSystemSolver<N,T>::forwardElimination()
 template<unsigned int N, typename T>
 void LinearSystemSolver<N,T>::backSubstitution()
 {
-    double det = coefficientsAndConstants(0,0);
-    for(unsigned int i = 1;i < N; ++i)
+    double det = 1;
+    for(unsigned int i = 0;i < N; ++i)
         det *= coefficientsAndConstants(i,i);
 
-    isResolvable = (fabs(det-0) > std::numeric_limits<double>::epsilon());//!=0
+    // != 0 -> linéairement indépendant
+    isResolvable = (fabs(det-0) > std::numeric_limits<double>::epsilon());
 
     if(isResolvable)
         for(int i= N-1;i >= 0; --i)

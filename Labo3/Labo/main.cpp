@@ -23,6 +23,11 @@ void printHeader()
          << "|===========================================|" << endl;
 }
 
+void waitHumanAction()
+{
+    cin.ignore();
+    cin.get();
+}
 int main()
 {
     const unsigned int NB_EQUATIONS = 3;
@@ -81,11 +86,13 @@ int main()
         LinearSystemSolver<
                         NB_EQUATIONS,
                         double> solver(coefficients,constants,variables);
-        cout << solver << endl << endl;
+        cout << solver;
+        waitHumanAction();
 
         cout << "Voulez-vous résoudre un autre système linéaire ? " << endl <<"1) Oui" << endl << "2) Non" << endl << endl << "Choix : ";
         cin >> choix;
-        clear();
+        if(choix == 1)
+            clear();
     }
     while(choix == 1);
 
