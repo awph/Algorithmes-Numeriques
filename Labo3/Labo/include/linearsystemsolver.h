@@ -36,7 +36,7 @@ class LinearSystemSolver
         friend std::ostream& operator<<(std::ostream& os, const LinearSystemSolver<NN, TT>& lss);
 
     private:
-        void partialPivoting();
+        void solve();
         void forwardElimination();
         void backSubstitution();
 

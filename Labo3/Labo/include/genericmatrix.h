@@ -18,6 +18,7 @@ public:
 	void fill(const T& value);
 
 	GenericMatrix<N, M, T> transpose() const;
+    void partialPivoting();
 
 	//Operators
 

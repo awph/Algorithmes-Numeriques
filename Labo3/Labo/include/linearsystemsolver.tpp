@@ -1,6 +1,4 @@
 #include <iostream>
-#include <cmath>
-#include <limits>
 
 /*------------------------------------------------------------------*\
 |*			    Constructors & Destructor				   *|
@@ -13,15 +11,13 @@ coefficientsAndConstants(concatenateMatrix(coefficients,constants)),isResolvable
     for(unsigned int i = 0;i < N; ++i)
         solutions[i] = new Solution<T>(variables(i,0));
 
-    partialPivoting();
-    forwardElimination();
-    backSubstitution();
+    solve();
 }
 
 template<unsigned int N, typename T>
 LinearSystemSolver<N,T>::~LinearSystemSolver()
 {
-    for(int i = 0;i < N; ++i)
+    for(unsigned int i = 0;i < N; ++i)
         delete solutions[i];
 }
 
@@ -60,21 +56,11 @@ std::ostream& operator<<(std::ostream& os, const LinearSystemSolver<N, T>& lss)
 \*------------------------------------------------------------------*/
 
 template<unsigned int N, typename T>
-void LinearSystemSolver<N,T>::partialPivoting()
+void LinearSystemSolver<N,T>::solve()
 {
-    int imax = 0;
-    for(unsigned int i = 0;i < N-1; ++i)//Lignes -> N, -1 car pas besoin d'aller dernière ligne (pivot implicite)
-    {
-        //On cherche le pivot
-        imax = i;
-        for(unsigned int j = i+1; j < N; ++j)//Lignes -> N
-            if(fabs(static_cast<double>(coefficientsAndConstants(imax,i))) < static_cast<double>(coefficientsAndConstants(j,i)))
-                imax = j;
-
-        //On intervertit les lignes
-        for(unsigned int j = 0; j < N + 1; ++j)//Colonnes -> N+1
-            std::swap(coefficientsAndConstants(i,j),coefficientsAndConstants(imax,j));
-    }
+    coefficientsAndConstants.partialPivoting();
+    forwardElimination();
+    backSubstitution();
 }
 
 template<unsigned int N, typename T>

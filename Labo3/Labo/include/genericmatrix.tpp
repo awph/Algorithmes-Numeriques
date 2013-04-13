@@ -1,5 +1,7 @@
 #include <cassert>
 #include <iomanip>
+#include <cmath>
+#include <limits>
 
 /*------------------------------------------------------------------*\
 |*			    Constructors & Destructor				   *|
@@ -59,6 +61,24 @@ GenericMatrix<N, M, T> GenericMatrix<M, N, T>::transpose() const
         for (unsigned int col = 0; col < M; ++col)
             result(row,col) = (*this)(col,row);
     return result;
+}
+
+template<unsigned int M, unsigned int N, typename T>
+void GenericMatrix<M, N, T>::partialPivoting()
+{
+    int imax = 0;
+    for(unsigned int i = 0;i < M-1; ++i)//Lignes -> M - 1, car pas besoin d'aller dernière ligne (pivot implicite)
+    {
+        //On cherche le pivot
+        imax = i;
+        for(unsigned int j = i+1; j < M; ++j)
+            if(fabs(static_cast<double>(m_values[imax][i])) < static_cast<double>(m_values[j][i]))
+                imax = j;
+
+        //On intervertit les lignes
+        for(unsigned int j = 0; j < N; ++j)
+            std::swap(m_values[i][j],m_values[imax][j]);
+    }
 }
 
 /*------------------------------------------------------------------*\
