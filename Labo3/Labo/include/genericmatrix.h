@@ -7,22 +7,18 @@ template<unsigned int M, unsigned int N, typename T>
 class GenericMatrix
 {
 public:
-	//Constructors & Destructor
 	explicit GenericMatrix(const T& defaultValue=0);
 	explicit GenericMatrix(const T tab[M][N]);
 	GenericMatrix(const GenericMatrix& m);
 	virtual ~GenericMatrix();
 
-	//Functions
 	void init(const T tab[M][N]);
 	void fill(const T& value);
 
 	GenericMatrix<N, M, T> transpose() const;
     void partialPivoting();
+    void forwardElimination();
 
-	//Operators
-
-	//Friends
 	template<unsigned int MM, unsigned int NN, typename TT>
 	friend std::ostream& operator<<(std::ostream& os, const GenericMatrix<MM, NN, TT>& m);
 
@@ -47,7 +43,6 @@ public:
 	template<unsigned int MM, unsigned int NN, typename TT>
 	friend GenericMatrix<MM, NN, TT> operator/(const GenericMatrix<MM, NN, TT>& m, const TT& t);
 
-	//Normal
 	GenericMatrix& operator+=(const GenericMatrix& m);
 	GenericMatrix& operator-=(const GenericMatrix& m);
 	GenericMatrix& operator*=(const T& t);
@@ -59,7 +54,6 @@ public:
 	const T& operator()(const unsigned int r,const unsigned int c) const;
 	T& operator()(const unsigned int r,const unsigned int c);
 
-	//Get
 	unsigned int rows() const {return M;}
 	unsigned int cols() const {return N;}
 

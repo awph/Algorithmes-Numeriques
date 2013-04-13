@@ -36,6 +36,8 @@
 		<Unit filename="include/genericmatrix.tpp" />
 		<Unit filename="include/linearsystemsolver.h" />
 		<Unit filename="include/linearsystemsolver.tpp" />
+		<Unit filename="include/permutationmatrix.h" />
+		<Unit filename="include/permutationmatrix.tpp" />
 		<Unit filename="include/solution.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>

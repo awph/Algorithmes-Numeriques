@@ -34,7 +34,7 @@ GenericMatrix<M, N, T>::~GenericMatrix()
 }
 
 /*------------------------------------------------------------------*\
-|*					Functions					*|
+|*					        Functions					            *|
 \*------------------------------------------------------------------*/
 
 template<unsigned int M, unsigned int N, typename T>
@@ -81,12 +81,26 @@ void GenericMatrix<M, N, T>::partialPivoting()
     }
 }
 
+template<unsigned int M, unsigned int N, typename T>
+void GenericMatrix<M, N, T>::forwardElimination()
+{
+    T factor;
+    for(unsigned int i = 0;i < M-1; ++i)//Lignes -> M - 1, car pas besoin d'aller dernière ligne (pivot implicite)
+        //On effectue les divisions & soustractions
+        for(unsigned int j = i+1;j < M; ++j)
+        {
+            factor = m_values[j][i] / m_values[i][i];
+            for(unsigned int k = i; k < N; ++k)
+                m_values[j][k] -= factor * m_values[i][k];
+         }
+}
+
 /*------------------------------------------------------------------*\
-|*					Operators			          	            *|
+|*					        Operators		          	            *|
 \*------------------------------------------------------------------*/
 
 /*------------------------------------------------------------------*\
-|*					Friends			          	            *|
+|*					        Friends			          	            *|
 \*------------------------------------------------------------------*/
 
 template<unsigned int M, unsigned int N, typename T>
@@ -188,7 +202,7 @@ GenericMatrix<M, N, T> operator/(const GenericMatrix<M, N, T>& m, const T& t)
 }
 
 /*------------------------------------------------------------------*\
-|*					Normal			          	            *|
+|*					        Normal			          	            *|
 \*------------------------------------------------------------------*/
 
 template<unsigned int M, unsigned int N, typename T>

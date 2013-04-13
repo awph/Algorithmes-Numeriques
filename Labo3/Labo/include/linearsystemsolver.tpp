@@ -1,8 +1,9 @@
 #include <iostream>
 
 /*------------------------------------------------------------------*\
-|*			    Constructors & Destructor				   *|
+|*			            Constructors & Destructor				    *|
 \*------------------------------------------------------------------*/
+
 template<unsigned int N, typename T>
 LinearSystemSolver<N,T>::LinearSystemSolver(const SquareMatrix<N,T>& coefficients,const GenericMatrix<N,1,T>& constants,const GenericMatrix<N,1,std::string>& variables)
 :coefficients(coefficients),constants(constants),variables(variables),
@@ -22,18 +23,19 @@ LinearSystemSolver<N,T>::~LinearSystemSolver()
 }
 
 /*------------------------------------------------------------------*\
-|*					Functions					                    *|
+|*					        Functions			                    *|
 \*------------------------------------------------------------------*/
 
 /*------------------------------------------------------------------*\
-|*					Friends			          	                    *|
+|*					        Friends		       	                    *|
 \*------------------------------------------------------------------*/
 
 template<unsigned int N, typename T>
-std::ostream& operator<<(std::ostream& os, const LinearSystemSolver<N, T>& lss)
+std::ostream& operator<<(std::ostream& os, LinearSystemSolver<N, T>& lss)
 {
     os << "Coefficients : " << std::endl;
     os << lss.coefficients << std::endl;
+    os << "Déterminant : " << lss.coefficients.getDeterminant() << std::endl;
     os << "Variables : " << std::endl;
     os << lss.variables << std::endl;
     os << "Constantes : " << std::endl;
@@ -59,22 +61,24 @@ template<unsigned int N, typename T>
 void LinearSystemSolver<N,T>::solve()
 {
     coefficientsAndConstants.partialPivoting();
-    forwardElimination();
-    backSubstitution();
-}
+    SquareMatrix<N,T> coef(coefficients);
+    PermutationMatrix<N,T> p = coef.partialPivotingWithGettingPermutationMatrix();
 
-template<unsigned int N, typename T>
-void LinearSystemSolver<N,T>::forwardElimination()
-{
-    T factor;
-    for(unsigned int i = 0;i < N-1; ++i)//Lignes -> N, -1 car pas besoin d'aller dernière ligne (pivot implicite)
-        //On effectue les divisions & soustractions
-        for(unsigned int j = i+1;j < N; ++j)//Lignes -> N
-        {
-            factor = coefficientsAndConstants(j,i) / coefficientsAndConstants(i,i);
-            for(unsigned int k = i; k < N + 1; ++k)//Colonnes -> N+1
-                coefficientsAndConstants(j,k) -= factor * coefficientsAndConstants(i,k);
-         }
+    //On met dans le bon ordre les variables
+    int finalIndexe = 0;
+    for(unsigned int i = 0;i < N; ++i)
+    {
+        finalIndexe = -1;
+        for(unsigned int j = 0;j < N && finalIndexe == -1; ++j)
+            if(p(j,i) == 1)//On recherche par colonne et pas par ligne
+                finalIndexe = j;
+
+        if(finalIndexe != -1)
+            std::swap(solutions[i],solutions[finalIndexe]);
+    }
+
+    coefficientsAndConstants.forwardElimination();
+    backSubstitution();
 }
 
 template<unsigned int N, typename T>

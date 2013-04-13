@@ -3,10 +3,10 @@
 
 #include "squarematrix.h"
 #include "genericmatrix.h"
+#include "permutationmatrix.h"
 #include "solution.h"
 
 #include <string>
-#include <vector>
 
 template<unsigned int N, typename T>
 GenericMatrix<N,N+1,T> concatenateMatrix(const SquareMatrix<N,T>& m,const GenericMatrix<N,1,T>& m2)
@@ -27,13 +27,11 @@ template<unsigned int N, typename T>
 class LinearSystemSolver
 {
     public:
-        explicit LinearSystemSolver(const SquareMatrix<N,T>& coefficients,
-                                    const GenericMatrix<N,1,T>& constants,
-                                    const GenericMatrix<N,1,std::string>& variables);
+        explicit LinearSystemSolver(const SquareMatrix<N,T>& coefficients,const GenericMatrix<N,1,T>& constants,const GenericMatrix<N,1,std::string>& variables);
         ~LinearSystemSolver();
 
         template<unsigned int NN, typename TT>
-        friend std::ostream& operator<<(std::ostream& os, const LinearSystemSolver<NN, TT>& lss);
+        friend std::ostream& operator<<(std::ostream& os, LinearSystemSolver<NN, TT>& lss);
 
     private:
         void solve();

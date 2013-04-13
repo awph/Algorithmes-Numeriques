@@ -86,9 +86,9 @@ int main()
         LinearSystemSolver<
                         NB_EQUATIONS,
                         double> solver(coefficients,constants,variables);
+
         cout << solver;
         waitHumanAction();
-
         cout << "Voulez-vous résoudre un autre système linéaire ? " << endl <<"1) Oui" << endl << "2) Non" << endl << endl << "Choix : ";
         cin >> choix;
         if(choix == 1)
