@@ -49,13 +49,12 @@ T SquareMatrix<N,T>::getDeterminant()
 template<unsigned int N, typename T>
 void SquareMatrix<N,T>::computeDeterminant()
 {
-    this->isDeterminantComputed = true;
-    SquareMatrix<N,T> u(*this);
-    PermutationMatrix<N,T> p = u.partialPivotingWithGettingPermutationMatrix();
-    u.forwardElimination();
-    SquareMatrix<N,T> l;
-
-    l.setIdentity();
+    //L'utilisation de pointeur devient nécessaire si l'on veut gérer
+    //des matrices de plus de 300x300
+    isDeterminantComputed = true;
+    SquareMatrix<N,T>* u = new SquareMatrix<N,T>(*this);
+    PermutationMatrix<N,T>* p = new PermutationMatrix<N,T>(u->partialPivotingWithGettingPermutationMatrix());
+    u->forwardElimination();
 
     /*/!\ Cette boucle sert à définir la matrice l. Dans notre cas, on en a pas besoin, donc on l'enlève.
     //Elle a juste servi à vérifier l'algorithme, mais on la laisse si un jour une méthode de décomposition LU
@@ -63,7 +62,10 @@ void SquareMatrix<N,T>::computeDeterminant()
 
     //On complète les cases en dessous de la diagonale de l
     //SquareMatrix<N,T> pa = p*(*this);
-    /*T sum = 0;
+    /*
+    SquareMatrix<N,T> l;
+    l.setIdentity();
+    T sum = 0;
     for(unsigned int i = 1;i < N; ++i)
         for(unsigned int j = 0;j < i; ++j)
         {
@@ -74,8 +76,11 @@ void SquareMatrix<N,T>::computeDeterminant()
         }*/
 
     for(unsigned int i = 0;i < N; ++i)
-        det *= l(i,i)*u(i,i);
-    det *= p.getDeterminant();
+        det *= (*u)(i,i);
+    det *= p->getDeterminant();
+
+    delete u;
+    delete p;
 }
 
 template<unsigned int N, typename T>

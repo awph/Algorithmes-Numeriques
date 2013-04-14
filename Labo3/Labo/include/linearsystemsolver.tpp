@@ -61,8 +61,8 @@ template<unsigned int N, typename T>
 void LinearSystemSolver<N,T>::solve()
 {
     coefficientsAndConstants.partialPivoting();
-    SquareMatrix<N,T> coef(coefficients);
-    PermutationMatrix<N,T> p = coef.partialPivotingWithGettingPermutationMatrix();
+    SquareMatrix<N,T>* coef = new SquareMatrix<N,T>(coefficients);
+    PermutationMatrix<N,T>* p = new PermutationMatrix<N,T>(coef->partialPivotingWithGettingPermutationMatrix());
 
     //On met dans le bon ordre les variables
     int finalIndexe = 0;
@@ -70,12 +70,15 @@ void LinearSystemSolver<N,T>::solve()
     {
         finalIndexe = -1;
         for(unsigned int j = 0;j < N && finalIndexe == -1; ++j)
-            if(p(j,i) == 1)//On recherche par colonne et pas par ligne
+            if((*p)(j,i) == 1)//On recherche par colonne et pas par ligne
                 finalIndexe = j;
 
         if(finalIndexe != -1)
             std::swap(solutions[i],solutions[finalIndexe]);
     }
+
+    delete coef;
+    delete p;
 
     coefficientsAndConstants.forwardElimination();
     backSubstitution();

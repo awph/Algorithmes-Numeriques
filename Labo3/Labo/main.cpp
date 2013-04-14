@@ -37,24 +37,25 @@ int main()
     cout << endl << "Pour modifier le nombre d'équations, il faut modifier la constante dans le main,";
     cout << "car il est impossible d'instancier une classe template avec une constante qui n'a pas été instanciée durant la compilation !" << endl << endl;
 
+    //Utilisation de pointeur devient nécessaire pour les grands systèmes (+300) car
+    //la taille de la heap > stack
     int choix = 1;
     do
     {
-        /* /!\ La matrice doit être régulière (inversible) ! Sinon le système ne peut être résolu /!\ */
         SquareMatrix<
                     NB_EQUATIONS,
                     double
-                    > coefficients(0.0);
+                    >* coefficients = new SquareMatrix<NB_EQUATIONS,double>(0.0);
 
         GenericMatrix<
                     NB_EQUATIONS,
                     1,
-                    double> constants(0.0);
+                    double>* constants = new GenericMatrix<NB_EQUATIONS,1,double>(0.0);
 
         GenericMatrix<
                     NB_EQUATIONS,
                     1,
-                    string> variables(" ");
+                    string>* variables = new GenericMatrix<NB_EQUATIONS,1,string>(" ");
 
         cout << "Entrez les noms des variables : " << endl;
         string variable;
@@ -62,7 +63,7 @@ int main()
         {
             cout << "Variable " << (i+1) << " : ";
             cin >> variable;
-            variables(i,0) = variable;
+            (*variables)(i,0) = variable;
         }
 
         for(unsigned int i = 0;i < NB_EQUATIONS; ++i)
@@ -73,26 +74,31 @@ int main()
             double valeur;
             for(unsigned int j = 0;j < NB_EQUATIONS; ++j)
             {
-                cout << "Coefficient de " << variables(j,0) << " : ";
+                cout << "Coefficient de " << (*variables)(j,0) << " : ";
                 cin >> valeur;
-                coefficients(i,j) = valeur;
+                (*coefficients)(i,j) = valeur;
             }
             cout << "Constante : ";
             cin >> valeur;
-            constants(i,0) = valeur;
+            (*constants)(i,0) = valeur;
         }
 
         clear();
         LinearSystemSolver<
                         NB_EQUATIONS,
-                        double> solver(coefficients,constants,variables);
+                        double>* solver = new LinearSystemSolver<NB_EQUATIONS,double>(*coefficients,*constants,*variables);
 
-        cout << solver;
+        cout << *solver;
         waitHumanAction();
         cout << "Voulez-vous résoudre un autre système linéaire ? " << endl <<"1) Oui" << endl << "2) Non" << endl << endl << "Choix : ";
         cin >> choix;
         if(choix == 1)
             clear();
+
+        delete coefficients;
+        delete variables;
+        delete constants;
+        delete solver;
     }
     while(choix == 1);
 
