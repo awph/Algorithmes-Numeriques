@@ -3,6 +3,7 @@
 #include "include/genericmatrix.h"
 
 #include <iostream>
+#include <sstream>
 #include <string>
 #include <clocale>
 
@@ -28,6 +29,25 @@ void waitHumanAction()
     cin.ignore();
     cin.get();
 }
+
+double readDouble()
+{
+    double output = 0;
+    bool isOk = false;
+    do
+    {
+        string input = "";
+        output = 0;
+        cin >> input;
+
+        stringstream stream(input);
+        if(stream >> output)
+            isOk = true;
+    }while(!isOk);
+
+    return output;
+}
+
 int main()
 {
     const unsigned int NB_EQUATIONS = 3;
@@ -75,12 +95,10 @@ int main()
             for(unsigned int j = 0;j < NB_EQUATIONS; ++j)
             {
                 cout << "Coefficient de " << (*variables)(j,0) << " : ";
-                cin >> valeur;
-                (*coefficients)(i,j) = valeur;
+                (*coefficients)(i,j) = readDouble();
             }
             cout << "Constante : ";
-            cin >> valeur;
-            (*constants)(i,0) = valeur;
+            (*constants)(i,0) = readDouble();
         }
 
         clear();
