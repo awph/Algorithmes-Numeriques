@@ -117,7 +117,7 @@ int main()
         delete constants;
         delete solver;
     }
-    while(choix != "1\n" && choix != "Non" && choix != "non");
+    while(choix == "1" || choix == "Oui" || choix == "oui");
 
 	return 0;
 }
