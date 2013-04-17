@@ -59,7 +59,7 @@ int main()
 
     //Utilisation de pointeur devient nécessaire pour les grands systèmes (+300) car
     //la taille de la heap > stack
-    int choix = 1;
+    string choix;
     do
     {
         SquareMatrix<
@@ -110,15 +110,14 @@ int main()
         waitHumanAction();
         cout << "Voulez-vous résoudre un autre système linéaire ? " << endl <<"1) Oui" << endl << "2) Non" << endl << endl << "Choix : ";
         cin >> choix;
-        if(choix == 1)
-            clear();
+        clear();
 
         delete coefficients;
         delete variables;
         delete constants;
         delete solver;
     }
-    while(choix == 1);
+    while(choix != "1\n" && choix != "Non" && choix != "non");
 
 	return 0;
 }
