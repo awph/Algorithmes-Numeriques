@@ -2,7 +2,7 @@
 #include <ctime>
 #include <cstdlib>
 #include <cmath>
-
+#include <iomanip>
 
 const int N = 5;
 
@@ -85,6 +85,6 @@ int main()
 {
     //generateMatrix();
     double matrix[N][N] = {{0.0769677,0.0780358,0.840846,0.547075,0.0669881},{0.223548,0.207862,0.583972,0.895871,0.858028},{0.123142,0.837275,0.773309,0.409253,0.631764},{0.685873,0.520341,0.0415662,0.858394,0.40257},{0.87759,0.356151,0.0314341,0.707114,0.971435}};
-    std::cout << "Det : " << computeDeterminant(matrix);
+    std::cout << std::fixed << std::setprecision(10) << "Det : " << computeDeterminant(matrix);
     return 0;
 }
