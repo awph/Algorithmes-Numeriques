@@ -4,11 +4,12 @@
 #include <cmath>
 #include <iomanip>
 
-const int N = 200;
+const int M = 200;
+const int N = 10;
 
-double computeDeterminant(double matrix[N][N])
+double computeDeterminant(double** matrix)
 {
-    /*int nbPermutation = 0;
+    int nbPermutation = 0;
     int imax = 0;
     for(int i = 0; i < N-1; ++i)
     {
@@ -25,9 +26,9 @@ double computeDeterminant(double matrix[N][N])
             ++nbPermutation;
         }
     }
-    double det = (nbPermutation%2 == 0) ? 1 : -1;*/
+    double det = (nbPermutation%2 == 0) ? 1 : -1;
 
-    double det = 1;
+    //double det = 1;
 
     double factor;
     for(int i = 0;i < N-1; ++i)
@@ -56,7 +57,7 @@ void display(double** matrix)
 
 int main()
 {
-double matrix[N][N] = {{0.532113, 0.207891, 0.918218, 0.657396, 0.46752, 0.293428, 0.724551,
+double matrix[M][M] = {{0.532113, 0.207891, 0.918218, 0.657396, 0.46752, 0.293428, 0.724551,
    0.624873, 0.559022, 0.759913, 0.940564, 0.71981, 0.524573,
   0.117088, 0.0217286, 0.657128, 0.256095, 0.359154, 0.312903,
   0.206458, 0.784194, 0.492139, 0.672055, 0.506377, 0.875604,
@@ -6453,8 +6454,17 @@ double matrix[N][N] = {{0.532113, 0.207891, 0.918218, 0.657396, 0.46752, 0.29342
   0.718498, 0.0999896, 0.306683, 0.208969, 0.79161, 0.992952,
   0.229445, 0.328962, 0.958323, 0.483417}};
 
+double** outmatrix = new double*[N];
+for(int i = 0;i < N; ++i)
+{
+    outmatrix[i] = new double[N];
+    for(int j = 0;j < N; ++j)
+        outmatrix[i][j] = matrix[i][j];
+}
+
+
     clock_t start_s = clock();
-  double det = computeDeterminant(matrix);
+  double det = computeDeterminant(outmatrix);
   clock_t stop_s = clock();
     std::cout << std::fixed << std::setprecision(10) << "Det : " << det;
     std::cout << "time in ms: " << (stop_s - start_s)/double(CLOCKS_PER_SEC)*1000 << std::endl;
