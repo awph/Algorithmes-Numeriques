@@ -4,11 +4,14 @@
 #include <cmath>
 #include <iomanip>
 
-const int M = 200;
-const int N = 10;
+const int M = 200; //Matrice de base
+const int N = 150; //Matric a generer
 
 double computeDeterminant(double** matrix)
 {
+    //=====================================
+    //========== Avec pivot O(N^2)=========
+    //=====================================
     int nbPermutation = 0;
     int imax = 0;
     for(int i = 0; i < N-1; ++i)
@@ -28,7 +31,20 @@ double computeDeterminant(double** matrix)
     }
     double det = (nbPermutation%2 == 0) ? 1 : -1;
 
-    //double det = 1;
+    //=====================================
+    //========== Fin avec pivot ===========
+    //=====================================
+
+
+    //=====================================
+    //========== Sans pivot ===============
+    //=====================================
+
+   // double det = 1;
+
+    //=====================================
+    //========== Fin sans pivot ===========
+    //=====================================
 
     double factor;
     for(int i = 0;i < N-1; ++i)
@@ -6454,19 +6470,20 @@ double matrix[M][M] = {{0.532113, 0.207891, 0.918218, 0.657396, 0.46752, 0.29342
   0.718498, 0.0999896, 0.306683, 0.208969, 0.79161, 0.992952,
   0.229445, 0.328962, 0.958323, 0.483417}};
 
-double** outmatrix = new double*[N];
-for(int i = 0;i < N; ++i)
-{
-    outmatrix[i] = new double[N];
-    for(int j = 0;j < N; ++j)
-        outmatrix[i][j] = matrix[i][j];
-}
+
+    double** outmatrix = new double*[N];
+    for(int i = 0;i < N; ++i)
+    {
+        outmatrix[i] = new double[N];
+        for(int j = 0;j < N; ++j)
+            outmatrix[i][j] = matrix[i][j];
+    }
 
 
     clock_t start_s = clock();
-  double det = computeDeterminant(outmatrix);
-  clock_t stop_s = clock();
-    std::cout << std::fixed << std::setprecision(10) << "Det : " << det;
+    double det = computeDeterminant(outmatrix);
+    clock_t stop_s = clock();
+    std::cout << std::fixed << std::setprecision(10) << "Det : " << det << std::endl;
     std::cout << "time in ms: " << (stop_s - start_s)/double(CLOCKS_PER_SEC)*1000 << std::endl;
 
     return 0;
