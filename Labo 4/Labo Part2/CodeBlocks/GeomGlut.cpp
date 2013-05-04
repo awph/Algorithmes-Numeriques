@@ -2,8 +2,9 @@
 #include "functions.h"
 
 GeomGlut graphWin;
-vector<pair<string,long double> > goldValues;
 
+vector<pair<string,long double> > goldValues;
+vector<pair<string,long double> > goldInflations;
 GeomGlut::GeomGlut( void )
 {
     minWin.x = 0;
@@ -33,9 +34,10 @@ long double GeomGlut::findSmartStepX( long double workingMinX, long double worki
   return( ratio );
 }
 
-void GeomGlut::initGraphicsWin( unsigned int pixelWinX, double _xMin, double _xMax, double _yMin, double _yMax ,const vector<pair<string,long double> >& values)
+void GeomGlut::initGraphicsWin( unsigned int pixelWinX, double _xMin, double _xMax, double _yMin, double _yMax ,const vector<pair<string,long double> >& _goldValues, const vector<pair<string,long double> >& _goldInflations)
 {
-  goldValues = values;
+  goldValues = _goldValues;
+  goldInflations = _goldInflations;
   if(_xMax-_xMin<=0)
         return;
 
@@ -55,7 +57,7 @@ void GeomGlut::initGraphicsWin( unsigned int pixelWinX, double _xMin, double _xM
   maxWin.x = _xMax;
   maxWin.y = _yMax;
 
-  glutCreateWindow("Algorithmes numériques: labo#4 - Part 1");
+  glutCreateWindow("Algorithmes numériques: labo#4 - Part 2");
 
   // Initialiser la couleur du fond (blanc)
   glClearColor(0.9f, 0.9f, 0.9f, 1.0f);

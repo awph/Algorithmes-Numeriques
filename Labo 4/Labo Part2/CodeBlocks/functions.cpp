@@ -7,7 +7,9 @@
 #include <string>
 
 extern GeomGlut graphWin;
+
 extern vector<pair<string,long double> > goldValues;
+extern vector<pair<string,long double> > goldInflations;
 
 void clear()
 {
@@ -73,6 +75,20 @@ void drawFunctions()
         }
     }
 
+    //Draw inflations
+    it = goldInflations.begin()+1;
+    long double value = it->second;
+    for(float x=graphWin.xMin(); it != goldInflations.end() && x < graphWin.xMax(); ++it, ++x)
+    {
+        value += it->second;
+        graphWin.plot(x, 2.0d*value, 0.0f,1.0f,0.0f);
+    }
 
-
+    clear();
+    printHeader();
+    std::cout << "x axe starts in " << goldValues[0].first << " and finish in the during the year " << goldValues[goldValues.size()-1].first << std::endl;
+    std::cout << "y represents the value of the cold" << std::endl;
+    std::cout << "Graphical Informations : " << std::endl
+              << "- Gold value in Swiss franc, in orange" << std::endl
+              << "- Inflation in percent with a factor 2 (to have a better display), in green" << std::endl << std::endl;
 }

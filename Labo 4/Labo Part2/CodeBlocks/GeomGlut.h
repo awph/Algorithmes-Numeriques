@@ -43,7 +43,7 @@ class GeomGlut
     // <none>
 
     //--- Public methods ---
-    void initGraphicsWin( unsigned int pixelWinX, double xMin, double xMax, double yMin, double yMax , const vector<pair<string,long double> >& values);
+    void initGraphicsWin( unsigned int pixelWinX, double xMin, double xMax, double yMin, double yMax , const vector<pair<string,long double> >& goldValues, const vector<pair<string,long double> >& goldInflations);
 
     void drawAxes();
     void plot( GLfloat x, GLfloat y );

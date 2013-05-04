@@ -61,12 +61,23 @@ vector<pair<string,long double> > createMapGold()
     }
 }
 
+vector<pair<string,long double> > createInflationChart(const vector<pair<string,long double> >& goldValues)
+{
+    vector<pair<string,long double> > inflation;
+    inflation.push_back(pair<string,long double>(goldValues[0].first,0));
+
+    for(vector<pair<string,long double> >::const_iterator it = goldValues.begin()+1; it != goldValues.end(); ++it)
+        inflation.push_back(pair<string,long double>(it->first,(it->second-(it-1)->second)*100.0f/(it-1)->second));
+
+    return inflation;
+}
+
 int main()
 {
 	setlocale(LC_ALL, "frs");
-    vector<pair<string,long double> > values = createMapGold();
-
-    graphWin.initGraphicsWin( 1400, 0, values.size(), 0, 2000, values);
+    vector<pair<string,long double> > goldValues = createMapGold();
+    vector<pair<string,long double> > goldInflations = createInflationChart(goldValues);
+    graphWin.initGraphicsWin( 1400, 0, goldValues.size(), -100, 2000, goldValues, goldInflations);
     return( 0 );
 }
 
