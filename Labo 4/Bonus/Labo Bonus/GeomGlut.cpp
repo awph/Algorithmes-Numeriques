@@ -2,7 +2,9 @@
 #include "functions.h"
 
 GeomGlut graphWin;
-long double (*f)(long double);
+long double radius;
+long double speedStraight;
+long double speedAlong;
 
 GeomGlut::GeomGlut( void )
 {
@@ -33,9 +35,12 @@ long double GeomGlut::findSmartStepX( long double workingMinX, long double worki
   return( ratio );
 }
 
-void GeomGlut::initGraphicsWin( unsigned int pixelWinX, double _xMin, double _xMax, double _yMin, double _yMax ,long double (*func)(long double))
+void GeomGlut::initGraphicsWin( unsigned int pixelWinX, double _xMin, double _xMax, double _yMin, double _yMax ,long double r, long double sStraight, long double sAlong)
 {
-  f = func;
+    radius = r;
+    speedStraight = sStraight;
+    speedAlong = sAlong;
+
   if(_xMax-_xMin<=0)
         return;
 
@@ -55,7 +60,7 @@ void GeomGlut::initGraphicsWin( unsigned int pixelWinX, double _xMin, double _xM
   maxWin.x = _xMax;
   maxWin.y = _yMax;
 
-  glutCreateWindow("Algorithmes numériques: labo#2");
+  glutCreateWindow("Algorithmes numériques: labo#4 - Bonus");
 
   // Initialiser la couleur du fond (blanc)
   glClearColor(0.9f, 0.9f, 0.9f, 1.0f);

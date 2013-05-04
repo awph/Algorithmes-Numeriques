@@ -40,7 +40,7 @@ class GeomGlut
     // <none>
 
     //--- Public methods ---
-    void initGraphicsWin( unsigned int pixelWinX, double xMin, double xMax, double yMin, double yMax , long double (*func)(long double));
+    void initGraphicsWin( unsigned int pixelWinX, double xMin, double xMax, double yMin, double yMax , long double r, long double sStraight, long double sAlong);
 
     void drawAxes();
     void plot( GLfloat x, GLfloat y );

@@ -5,7 +5,9 @@
 #include <cmath>
 
 extern GeomGlut graphWin;
-extern long double (*f)(long double);
+extern long double radius;
+extern long double speedStraight;
+extern long double speedAlong;
 
 void clear()
 {
@@ -22,29 +24,26 @@ void printHeader()
          << "|===========================================|" << endl;
 }
 
-long double f1(long double x)
+long double distanceStraight(long double phi)
 {
-    return pow(x,5)+5*pow(x,3)+2*x;
+    return fabsl(radius)*sqrtl(2.0d+2.0d*cos(2.0d*phi));
 }
 
-long double f2(long double x)
+long double distanceAlong(long double phi)
 {
-    return x/(1-x*x);
+    return phi*radius;
 }
 
-long double f2_denominator(long double x)
+long double f(long double phi)
 {
-    return 1-x*x;
+    return distanceStraight(phi)/speedStraight + 2.0d*distanceAlong(phi)/speedAlong;
 }
-//Long double necessary to keep a coeherent result with the machin epsilon !
-//Otherwise, we lost a big big precision. For example if we use x=2 with f1 and double, we get 71 and not 142 !
+
 long double derivateFirstOrder(long double x, long double (*f)(long double), long double h)
 {
     return (f(x+h)-f(x-h))/(2.0d*h);
 }
 
-//Unfortunately, if we use the epsilon machine, we cannot have an acceptable result,
-//so we have to use h with the value 1e-6. Smaller is h, more imprecise is the result
 long double derivateSecondOrder(long double x, long double (*f)(long double), long double h)
 {
     return (f(x+h)+f(x-h)-2*f(x))/(h*h);
@@ -53,32 +52,21 @@ long double derivateSecondOrder(long double x, long double (*f)(long double), lo
 void drawFunctions()
 {
     const float STEP = 1e-5;
+    const float xMin = 0.0f;
+    const float xMax = M_PI/2.0f;
     glPointSize(2.0f);
 
     //Draw f(x)
-    for(float x=graphWin.xMin(); x<graphWin.xMax(); x+=STEP)
+    for(float x=xMin; x<xMax; x+=STEP)
         graphWin.plot(x, f(x), 1.0f,0.5f,0.0f);
 
     //Draw f'(x)
-    for(float x=graphWin.xMin(); x<graphWin.xMax(); x+=STEP)
+    for(float x=xMin; x<xMax; x+=STEP)
         graphWin.plot( x, derivateFirstOrder(x,f) , 0.5f,0.5f,0.5f);
 
     //Draw f''(x)
-    for(float x=graphWin.xMin()+STEP; x<graphWin.xMax(); x+=STEP)
+    for(float x=xMin; x<xMax; x+=STEP)
         graphWin.plot(x, derivateSecondOrder(x,f), 1.0f,0.5f,1.0f);
-
-    //Of course we could use the method findRoot of the laboratory 2 but the little problem is that
-    //we depend of the denominator of the given function so we have to know which function to use.
-    //So we have to adapt the method findRoot to the function denominator.
-    //The easiest solution is to know the asymptote and draw directly them, rather to compute them.
-    //In the both case, if we change the function, the quantity of work is the same, so let's take the
-    //easiest and fastest solution
-    if(f == &f2)
-        for(float y = graphWin.yMin(); y < graphWin.yMax(); y+=STEP)
-        {
-            graphWin.plot(1.0d, y, 1.0f,0.5f,1.0f);
-            graphWin.plot(-1.0d, y, 1.0f,0.5f,1.0f);
-        }
 
     clear();
     printHeader();
