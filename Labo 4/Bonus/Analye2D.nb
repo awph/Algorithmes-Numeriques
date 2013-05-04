@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[     23043,        470]
-NotebookOptionsPosition[     22684,        453]
-NotebookOutlinePosition[     23027,        468]
-CellTagsIndexPosition[     22984,        465]
+NotebookDataLength[     24922,        528]
+NotebookOptionsPosition[     24296,        502]
+NotebookOutlinePosition[     24639,        517]
+CellTagsIndexPosition[     24596,        514]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -22,16 +22,16 @@ Cell[BoxData[{
  RowBox[{
   RowBox[{"r", "=", "2"}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"v1", "=", "4"}], ";"}], "\[IndentingNewLine]", 
+  RowBox[{"vl", "=", "4"}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"v2", "=", "2"}], ";"}], "\[IndentingNewLine]", 
+  RowBox[{"vd", "=", "2"}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
-   RowBox[{"L1", "[", "\[Phi]_", "]"}], ":=", 
+   RowBox[{"dl", "[", "\[Phi]_", "]"}], ":=", 
    RowBox[{"\[Phi]", "*", "r"}]}], ";", 
   RowBox[{"(*", "Bord", "*)"}], "\[IndentingNewLine]", 
   RowBox[{
-   RowBox[{"L2", "[", "\[Phi]_", "]"}], ":=", 
+   RowBox[{"dd", "[", "\[Phi]_", "]"}], ":=", 
    RowBox[{
     RowBox[{"Abs", "[", "r", "]"}], 
     SqrtBox[
@@ -46,9 +46,9 @@ Cell[BoxData[{
    RowBox[{
     FractionBox[
      RowBox[{"2", "*", 
-      RowBox[{"L1", "[", "\[Phi]", "]"}]}], "v1"], "+", 
+      RowBox[{"dl", "[", "\[Phi]", "]"}]}], "vl"], "+", 
     FractionBox[
-     RowBox[{"L2", "[", "\[Phi]", "]"}], "v2"]}]}]}]}], "Input",
+     RowBox[{"dd", "[", "\[Phi]", "]"}], "vd"]}]}]}]}], "Input",
  CellChangeTimes->{{3.5766491281463423`*^9, 3.5766491921693573`*^9}, {
    3.576649323362943*^9, 3.576649340253235*^9}, {3.5766495203910675`*^9, 
    3.576649521509055*^9}, {3.5766495661096163`*^9, 3.576649569005116*^9}, {
@@ -58,7 +58,9 @@ Cell[BoxData[{
    3.5766504423894615`*^9}, {3.5766510754672484`*^9, 
    3.5766510842616644`*^9}, {3.57665117839003*^9, 3.5766511967735777`*^9}, {
    3.576651239334464*^9, 3.576651266846613*^9}, 3.5766514091016064`*^9, 
-   3.576654041525122*^9, {3.576654735341117*^9, 3.576654743787286*^9}}],
+   3.576654041525122*^9, {3.576654735341117*^9, 3.576654743787286*^9}, {
+   3.5766574649165926`*^9, 3.57665747029017*^9}, {3.576657783980615*^9, 
+   3.576657807265248*^9}, 3.576657989411833*^9, 3.5766582007239976`*^9}],
 
 Cell[CellGroupData[{
 
@@ -448,7 +450,54 @@ d\[EAcute]riv\[EAcute]es\"", TraditionalForm], PlotRange ->
    3.576651269328707*^9}, {3.576651323799633*^9, 3.5766513432950735`*^9}, {
    3.576653407813796*^9, 3.576653422969632*^9}, 3.5766540425980806`*^9, 
    3.5766541155946307`*^9, {3.5766547381985254`*^9, 3.5766547458240128`*^9}, {
-   3.57665488979735*^9, 3.576654896418932*^9}}]
+   3.57665488979735*^9, 3.576654896418932*^9}, 3.57665747277522*^9, 
+   3.5766578102528114`*^9, 3.576657990945121*^9, 3.5766582033111787`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Solve", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"tempsTot", "'"}], "[", "\[Phi]", "]"}], "\[Equal]", "0"}], ",", 
+   "\[Phi]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.576658336757696*^9, 3.5766583541013637`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Solve", "::", "ifun"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"Inverse functions are being used by \
+\[NoBreak]\\!\\(Solve\\)\[NoBreak], so some solutions may not be found; use \
+Reduce for complete solution information. \\!\\(\\*ButtonBox[\\\"\
+\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/Solve/ifun\\\", ButtonNote -> \
+\\\"Solve::ifun\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{{3.576658352177712*^9, 3.5766583544776363`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"{", 
+   RowBox[{"\[Phi]", "\[Rule]", 
+    FractionBox["\[Pi]", "6"]}], "}"}], "}"}]], "Output",
+ CellChangeTimes->{{3.5766583448645306`*^9, 3.5766583544806385`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"tempsTot", "''"}], "[", 
+  RowBox[{"\[Pi]", "/", "6"}], "]"}]], "Input",
+ CellChangeTimes->{{3.5766585022452283`*^9, 3.576658505285841*^9}}],
+
+Cell[BoxData[
+ RowBox[{"-", 
+  SqrtBox["3"]}]], "Output",
+ CellChangeTimes->{3.57665850551606*^9}]
 }, Open  ]]
 },
 WindowSize->{1424, 773},
@@ -467,10 +516,19 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[557, 20, 1707, 40, 286, "Input"],
+Cell[557, 20, 1854, 42, 286, "Input"],
 Cell[CellGroupData[{
-Cell[2289, 64, 2118, 49, 213, "Input"],
-Cell[4410, 115, 18258, 335, 504, "Output"]
+Cell[2436, 66, 2118, 49, 213, "Input"],
+Cell[4557, 117, 18353, 336, 504, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[22947, 458, 252, 7, 60, "Input"],
+Cell[23202, 467, 557, 11, 85, "Message"],
+Cell[23762, 480, 205, 5, 102, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[24004, 490, 175, 4, 60, "Input"],
+Cell[24182, 496, 98, 3, 120, "Output"]
 }, Open  ]]
 }
 ]
