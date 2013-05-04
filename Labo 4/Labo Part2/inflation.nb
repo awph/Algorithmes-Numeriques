@@ -1,0 +1,70 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      1518,         60]
+NotebookOptionsPosition[      1167,         43]
+NotebookOutlinePosition[      1514,         58]
+CellTagsIndexPosition[      1471,         55]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"infl", "[", 
+    RowBox[{"ICV1_", ",", "ICV2_"}], "]"}], ":=", 
+   FractionBox[
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"ICV2", "-", "ICV1"}], ")"}], "*", "100"}], "ICV1"]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.5766610177631593`*^9, 3.5766610467986803`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"infl", "[", 
+  RowBox[{"218.056", ",", "229.594"}], "]"}]], "Input",
+ CellChangeTimes->{{3.576661057059948*^9, 3.5766610688885326`*^9}}],
+
+Cell[BoxData["5.291301317092849`"], "Output",
+ CellChangeTimes->{3.5766610692479753`*^9}]
+}, Open  ]]
+},
+WindowSize->{707, 646},
+WindowMargins->{{296, Automatic}, {-286, Automatic}},
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 317, 10, 128, "Input"],
+Cell[CellGroupData[{
+Cell[899, 34, 160, 3, 60, "Input"],
+Cell[1062, 39, 89, 1, 91, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+
