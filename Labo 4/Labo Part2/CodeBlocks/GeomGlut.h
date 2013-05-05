@@ -43,13 +43,13 @@ class GeomGlut
     // <none>
 
     //--- Public methods ---
-    void initGraphicsWin( unsigned int pixelWinX, double xMin, double xMax, double yMin, double yMax , const vector<pair<string,long double> >& goldValues, const vector<pair<string,long double> >& goldInflations);
+    void initGraphicsWin( unsigned int pixelWinX, double xMin, double xMax, double yMin, double yMax, const vector<pair<string,long double> >& _goldValues, const vector<pair<string,long double> >& _goldInflations);
 
     void drawAxes();
     void plot( GLfloat x, GLfloat y );
     void plot( GLfloat x, GLfloat y, GLfloat sizePoint );
 
-    void print(float x, float y, const char* text, float r, float g, float b);
+    void print(float x, float y, const char* text, float r = 0.0f, float g = 0.0f, float b=0.0f, LPVOID font = GLUT_BITMAP_HELVETICA_12);
 
     //--- to find an « good » delta_x
     long double findSmartStepX( void );  // if working in the full defined area (from winMinX to winMaxX)
@@ -60,7 +60,7 @@ class GeomGlut
     void setColorForPlotWithoutColor( GLfloat r, GLfloat g, GLfloat b ); // to assign color, but must use the following function
     void plot( bool presetColorAndGLVertex, GLfloat x, GLfloat y ); // dessine un point sans changer la couleur ni préciser l’appel à GL_POINT2D si le drapeau presetColorAndGLVertex est vrai (c’est bcp mieux pour OpenGL)
 
-    void segment( GLfloat x1, GLfloat y1, GLfloat x2, GLfloat y2 );
+    void segment( GLfloat x1, GLfloat y1, GLfloat x2, GLfloat y2,GLfloat r=0.0f, GLfloat g=0.0f, GLfloat b=0.0f);
 
     double xMin( void ) { return( minWin.x); }
     double yMin( void ) { return( minWin.y); }
@@ -71,6 +71,12 @@ class GeomGlut
 
     unsigned int xWinFunc( void ) { return( winFuncPixels.x ); }
     unsigned int yWinFunc( void ) { return( winFuncPixels.y ); }
+
+    vector<pair<string,long double> >& getGoldValues() {return goldValues;}
+    vector<pair<string,long double> >& getGoldInflations() {return goldInflations;}
+
+    const static int numberOfDaysInbrokerYear = 261;
+    const static int nbMaxNumberOfBenefitsToDisplay = 3;
 
   private:
     //--- Private members ---
@@ -83,10 +89,8 @@ class GeomGlut
     coord2D getMinWin( void ) { return( minWin ); }
     coord2D getMaxWin( void ) { return( maxWin ); }
     coord2D_UInt getFuncWinPixel( void ) { return( winFuncPixels ); }
-
-  protected:
-    // <none>
-
+    vector<pair<string,long double> > goldValues;
+    vector<pair<string,long double> > goldInflations;
 };
 
 // openGL functions

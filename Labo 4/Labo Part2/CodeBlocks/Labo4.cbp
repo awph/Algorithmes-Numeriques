@@ -41,6 +41,7 @@
 		</Linker>
 		<Unit filename="GeomGlut.cpp" />
 		<Unit filename="GeomGlut.h" />
+		<Unit filename="datas/prix_or.csv" />
 		<Unit filename="functions.cpp" />
 		<Unit filename="functions.h" />
 		<Unit filename="main.cpp" />

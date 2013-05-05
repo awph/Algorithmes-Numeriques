@@ -3,9 +3,7 @@
 
 GeomGlut graphWin;
 
-vector<pair<string,long double> > goldValues;
-vector<pair<string,long double> > goldInflations;
-GeomGlut::GeomGlut( void )
+GeomGlut::GeomGlut(void)
 {
     minWin.x = 0;
     minWin.y = 0;
@@ -34,10 +32,11 @@ long double GeomGlut::findSmartStepX( long double workingMinX, long double worki
   return( ratio );
 }
 
-void GeomGlut::initGraphicsWin( unsigned int pixelWinX, double _xMin, double _xMax, double _yMin, double _yMax ,const vector<pair<string,long double> >& _goldValues, const vector<pair<string,long double> >& _goldInflations)
+void GeomGlut::initGraphicsWin( unsigned int pixelWinX, double _xMin, double _xMax, double _yMin, double _yMax,const vector<pair<string,long double> >& _goldValues,const vector<pair<string,long double> >& _goldInflations)
 {
   goldValues = _goldValues;
   goldInflations = _goldInflations;
+
   if(_xMax-_xMin<=0)
         return;
 
@@ -122,7 +121,7 @@ void GeomGlut::drawAxes()
 
 //Source : http://www.gamedeception.net/threads/1876-Printing-Text-with-glut
 //Modified with removing the parameter fond, passing glColor4f->3f and add rotate
-void GeomGlut::print(float x, float y, const char* text, float r, float g, float b)
+void GeomGlut::print(float x, float y, const char* text, float r, float g, float b, LPVOID font)
 {
     if(!text || !strlen(text)) return;
     bool blending = false;
@@ -132,7 +131,7 @@ void GeomGlut::print(float x, float y, const char* text, float r, float g, float
     glRasterPos2f(x,y);
 
     while (*text) {
-        glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_10, *text);
+        glutBitmapCharacter(font, *text);
         text++;
     }
     if(!blending) glDisable(GL_BLEND);
@@ -181,13 +180,13 @@ void GeomGlut::plot( GLfloat x, GLfloat y, GLfloat r, GLfloat g, GLfloat b )
   glEnd();
 }
 
-void GeomGlut::segment( GLfloat x1, GLfloat y1, GLfloat x2, GLfloat y2 )
+void GeomGlut::segment( GLfloat x1, GLfloat y1, GLfloat x2, GLfloat y2, GLfloat r, GLfloat g, GLfloat b)
 {
   if( (x1<minWin.x) || (x1>maxWin.x) || (y1<minWin.y) || (y1>maxWin.y) ||
       (x2<minWin.x) || (x2>maxWin.x) || (y2<minWin.y) || (y2>maxWin.y) )
     glColor3f(0.7f, 0.7f, 0.7f);
   else
-    glColor3f(0.0f, 0.0f, 0.0f);
+    glColor3f(r,g,b);
 
   glBegin( GL_LINES );
     glVertex3d(x1, y1, 0.0);

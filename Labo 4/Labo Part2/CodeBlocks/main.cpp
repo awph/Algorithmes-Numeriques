@@ -13,15 +13,7 @@ extern GeomGlut graphWin;
 
 using namespace std;
 
-long double StringToLongDouble(const string& str)
-{
-	stringstream ss(str);
-	long double out;
-	ss >> out;
-	return out;
-}
-
-vector<pair<string,long double> > createMapGold()
+const vector<pair<string,long double> > createMapGold()
 {
     vector<pair<string,long double> > goldValues;
     ifstream file;
@@ -34,7 +26,6 @@ vector<pair<string,long double> > createMapGold()
         {
             getline(file,line);
             istringstream ins(line);
-
             int i = 1;
             string key;
             long double value;
@@ -44,7 +35,7 @@ vector<pair<string,long double> > createMapGold()
                 if(!line.empty())
                 {
                     if(i++%2 == 0)
-                        value = StringToLongDouble(line);
+                        value = stringToLongDouble(line);
                     else
                         key = line;
                 }
@@ -61,13 +52,13 @@ vector<pair<string,long double> > createMapGold()
     }
 }
 
-vector<pair<string,long double> > createInflationChart(const vector<pair<string,long double> >& goldValues)
+const vector<pair<string,long double> > createInflationChart(const vector<pair<string,long double> >& goldValues)
 {
     vector<pair<string,long double> > inflation;
     inflation.push_back(pair<string,long double>(goldValues[0].first,0));
 
     for(vector<pair<string,long double> >::const_iterator it = goldValues.begin()+1; it != goldValues.end(); ++it)
-        inflation.push_back(pair<string,long double>(it->first,(it->second-(it-1)->second)*100.0f/(it-1)->second));
+        inflation.push_back(pair<string,long double>(it->first,(it->second-goldValues[0].second)*100.0d/goldValues[0].second));
 
     return inflation;
 }
@@ -75,9 +66,10 @@ vector<pair<string,long double> > createInflationChart(const vector<pair<string,
 int main()
 {
 	setlocale(LC_ALL, "frs");
-    vector<pair<string,long double> > goldValues = createMapGold();
-    vector<pair<string,long double> > goldInflations = createInflationChart(goldValues);
-    graphWin.initGraphicsWin( 1400, 0, goldValues.size(), -100, 2000, goldValues, goldInflations);
+    const vector<pair<string,long double> > goldValues = createMapGold();
+    const vector<pair<string,long double> > goldInflations = createInflationChart(goldValues);
+
+    graphWin.initGraphicsWin( 1400, 0, goldValues.size(), 0, 3000, goldValues, goldInflations);
     return( 0 );
 }
 
