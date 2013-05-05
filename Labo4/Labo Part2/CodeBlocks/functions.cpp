@@ -114,7 +114,7 @@ void plotBestTimeToBuyDuringOneYear(float r, float g, float b, int iStart)
         graphWin.segment(x,
                         height,
                         x+numberOfDaysInbrokerYear,
-                        height, 1.5f, r, g, b);
+                        height, 1.5f, r, g, b, true);
 
         string delta = "+";
         delta += longDoubleToString(it->second);
@@ -140,7 +140,7 @@ void plotBestTimeToBuyDuringAnyTime(float r, float g, float b, int iStart)
         graphWin.segment(x1,
                         height,
                         x2,
-                        height, 1.5f, r, g, b);
+                        height, 1.5f, r, g, b, true);
 
         string delta = "+";
         delta += longDoubleToString(it->second.second);

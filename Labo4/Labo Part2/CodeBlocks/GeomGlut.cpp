@@ -180,7 +180,7 @@ void GeomGlut::plot( GLfloat x, GLfloat y, GLfloat r, GLfloat g, GLfloat b )
   glEnd();
 }
 
-void GeomGlut::segment( GLfloat x1, GLfloat y1, GLfloat x2, GLfloat y2, GLfloat w, GLfloat r, GLfloat g, GLfloat b)
+void GeomGlut::segment( GLfloat x1, GLfloat y1, GLfloat x2, GLfloat y2, GLfloat w, GLfloat r, GLfloat g, GLfloat b, bool arrow)
 {
   if( (x1<minWin.x) || (x1>maxWin.x) || (y1<minWin.y) || (y1>maxWin.y) ||
       (x2<minWin.x) || (x2>maxWin.x) || (y2<minWin.y) || (y2>maxWin.y) )
@@ -188,11 +188,29 @@ void GeomGlut::segment( GLfloat x1, GLfloat y1, GLfloat x2, GLfloat y2, GLfloat 
   else
     glColor3f(r,g,b);
 
-  glLineWidth(w);
-  glBegin( GL_LINES );
-    glVertex3d(x1, y1, 0.0);
-    glVertex3d(x2, y2, 0.0);
-  glEnd();
+    glLineWidth(w);
+    glBegin( GL_LINES );
+        glVertex3d(x1, y1, 0.0);
+        glVertex3d(x2, y2, 0.0);
+    glEnd();
+
+    if(arrow)
+    {
+        GLfloat arrowSize = 20;
+        glBegin( GL_LINES );
+            glVertex3d(x2, y2, 0.0);
+            glVertex3d(x2-arrowSize, y2-arrowSize, 0.0);
+            glVertex3d(x2, y2, 0.0);
+            glVertex3d(x2-arrowSize, y2+arrowSize, 0.0);
+        glEnd();
+
+        glBegin( GL_LINES );
+            glVertex3d(x1, y1, 0.0);
+            glVertex3d(x1+arrowSize, y1+arrowSize, 0.0);
+            glVertex3d(x1, y1, 0.0);
+            glVertex3d(x1+arrowSize, y1-arrowSize, 0.0);
+        glEnd();
+    }
 }
 
 //----------------------------------------------------------------------------------

@@ -60,7 +60,7 @@ class GeomGlut
     void setColorForPlotWithoutColor( GLfloat r, GLfloat g, GLfloat b ); // to assign color, but must use the following function
     void plot( bool presetColorAndGLVertex, GLfloat x, GLfloat y ); // dessine un point sans changer la couleur ni préciser l’appel à GL_POINT2D si le drapeau presetColorAndGLVertex est vrai (c’est bcp mieux pour OpenGL)
 
-    void segment( GLfloat x1, GLfloat y1, GLfloat x2, GLfloat y2,GLfloat w = 1.0f, GLfloat r=0.0f, GLfloat g=0.0f, GLfloat b=0.0f);
+    void segment( GLfloat x1, GLfloat y1, GLfloat x2, GLfloat y2,GLfloat w = 1.0f, GLfloat r=0.0f, GLfloat g=0.0f, GLfloat b=0.0f, bool arrow = false);
 
     double xMin( void ) { return( minWin.x); }
     double yMin( void ) { return( minWin.y); }
