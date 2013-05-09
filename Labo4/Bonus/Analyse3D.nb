@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[    114602,       1944]
-NotebookOptionsPosition[    114242,       1927]
-NotebookOutlinePosition[    114585,       1942]
-CellTagsIndexPosition[    114542,       1939]
+NotebookDataLength[    114597,       1944]
+NotebookOptionsPosition[    114238,       1927]
+NotebookOutlinePosition[    114581,       1942]
+CellTagsIndexPosition[    114538,       1939]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -76,8 +76,7 @@ Cell[BoxData[
    RowBox[{"{", 
     RowBox[{"r", ",", "0", ",", "1000"}], "}"}], ",", 
    RowBox[{"PlotLegends", "->", 
-    RowBox[{"{", "\"\<Temps en fonction de l'angle et du rayon\>\"", "}"}]}], 
-   ",", 
+    RowBox[{"{", "\"\<f(\[Phi],r)\>\"", "}"}]}], ",", 
    RowBox[{"AxesStyle", "->", 
     RowBox[{"Arrowheads", "[", "0.02", "]"}]}], ",", 
    RowBox[{"AxesLabel", "->", 
@@ -94,7 +93,8 @@ Cell[BoxData[
    3.5766502234448566`*^9, 3.576650240852578*^9}, {3.5766503525807867`*^9, 
    3.5766504241390977`*^9}, {3.5766504822270565`*^9, 
    3.5766504837072983`*^9}, {3.5766505296030436`*^9, 3.5766506527558346`*^9}, 
-   3.5766518059331503`*^9, 3.5766590229373026`*^9}],
+   3.5766518059331503`*^9, 3.5766590229373026`*^9, {3.577094911606444*^9, 
+   3.5770949201849766`*^9}}],
 
 Cell[BoxData[
  TemplateBox[{Graphics3DBox[
@@ -1827,12 +1827,11 @@ Zr8IlU8uWfX+mRy67AfTfuWegw5L4x7nmZXoGOFazoRrWRKu5XBvtqjkySCq
 nsDydRLcATWRS3O6SxeyCerYUjooR3232m/auv8GI949nf67ypX9cQ7pj0tJ
 f9zstmPqw0I5cpdOk7cHNcJwVMQvFpPrlTkzNJIzU0NyZpaklGbuoM4t/c+8
 VwOsk8Dc3+2+xUio7DtfIn1nBek7/x/ZZPU/
-      "]], AutomaticImageSize -> True, Axes -> True, AxesLabel -> {
+      "]], Axes -> True, AxesLabel -> {
       FormBox["\"\[Phi][rad]\"", TraditionalForm], 
       FormBox["\"r[m]\"", TraditionalForm], 
       FormBox["\"t[s]\"", TraditionalForm]}, AxesStyle -> Arrowheads[0.02], 
-    BoxRatios -> {1, 1, 0.4}, 
-    ImageSize -> {361.012057135639, 157.76259218557917`}, 
+    BoxRatios -> {1, 1, 0.4}, ImageSize -> {480.33434278026874`, 196.5}, 
     Method -> {"RotationControl" -> "Globe"}, PlotRange -> 
     NCache[{{0, Rational[1, 2] Pi}, {0, 1000}, {0., 1127.7869242519544`}}, {{
        0, 1.5707963267948966`}, {0, 1000}, {0., 1127.7869242519544`}}], 
@@ -1840,10 +1839,10 @@ VwOsk8Dc3+2+xUio7DtfIn1nBek7/x/ZZPU/
       Scaled[0.02], 
       Scaled[0.02], 
       Scaled[0.02]}, 
-    ViewPoint -> {-3.363907121636173, -0.33751723285866736`, \
--0.14216537739150362`}, ViewVertical -> {0., 0., 1.}],
-   TemplateBox[{"\"Temps en fonction de l'angle et du rayon\""}, 
-    "SwatchLegend", DisplayFunction -> (StyleBox[
+    ViewPoint -> {-3.34568656055035, -0.477075367884211, \
+-0.16964825938097242`}, ViewVertical -> {0., 0., 1.}],
+   TemplateBox[{"\"f(\[Phi],r)\""}, "SwatchLegend", 
+    DisplayFunction -> (StyleBox[
       StyleBox[
        PaneBox[
         TagBox[
@@ -1922,7 +1921,8 @@ VwOsk8Dc3+2+xUio7DtfIn1nBek7/x/ZZPU/
          RowBox[{#2, ",", "After"}], "]"}]}], "]"}]& )]], "Output",
  CellChangeTimes->{
   3.576650653510485*^9, 3.5766510598481092`*^9, 3.5766518070140624`*^9, {
-   3.5766590245926538`*^9, 3.576659030366522*^9}}]
+   3.5766590245926538`*^9, 3.576659030366522*^9}, {3.5770949014185615`*^9, 
+   3.5770949206536922`*^9}}]
 }, Open  ]]
 },
 WindowSize->{1424, 773},
@@ -1943,8 +1943,8 @@ CellTagsIndex->{}
 Notebook[{
 Cell[557, 20, 1560, 43, 248, "Input"],
 Cell[CellGroupData[{
-Cell[2142, 67, 1319, 29, 137, "Input"],
-Cell[3464, 98, 110762, 1826, 380, "Output"]
+Cell[2142, 67, 1338, 29, 99, "Input"],
+Cell[3483, 98, 110739, 1826, 425, "Output"]
 }, Open  ]]
 }
 ]
