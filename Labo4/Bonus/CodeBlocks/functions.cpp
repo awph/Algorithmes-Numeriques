@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <cmath>
+#include <climits>
 
 extern GeomGlut graphWin;
 extern long double radius;
@@ -49,6 +50,29 @@ long double derivateSecondOrder(long double x, long double (*f)(long double), lo
     return (f(x+h)+f(x-h)-2*f(x))/(h*h);
 }
 
+long double findRoot()
+{
+    long double a = graphWin.xMin(), b = graphWin.xMax(), fa = derivateFirstOrder(a,&f), fm = 0.0;
+    long double mnew = a + b;
+    long double mold = 2*mnew;
+    long double epsilon = std::numeric_limits<long double>::epsilon();
+
+    while(fabsl(mnew-mold) >= epsilon)
+    {
+        mold = mnew;
+        mnew = (a+b)/2.0;
+        fm = derivateFirstOrder(mnew,&f);
+        if(fm*fa <= epsilon)
+            b = mnew;
+        else
+        {
+            a = mnew;
+            fa = fm;
+        }
+    }
+    return mnew;
+}
+
 void drawFunctions()
 {
     const float STEP = 1e-5;
@@ -61,6 +85,9 @@ void drawFunctions()
         graphWin.plot(x, derivateFirstOrder(x,f) , 0.5f,0.5f,0.5f);
         graphWin.plot(x, derivateSecondOrder(x,f), 1.0f,0.5f,1.0f);
     }
+
+    graphWin.print(0,1.0,"t [s]",1.0f);
+    graphWin.print(1.0,0,"phi [rad]",1.0f);
 
     //Plot legends
     float x = graphWin.xMax()/2;
@@ -77,6 +104,26 @@ void drawFunctions()
               << "- Function choosen (f(x)) in orange" << std::endl
               << "- First derivative in gray" << std::endl
               << "- Second derivative in rose" << std::endl
-              << "- The axes x,y are in bleu " << std::endl
+              << "- The axes x,y are in bleu, respectively in [rad] and [s]" << std::endl
               << "- The unitary vectors are in red " << std::endl << std::endl;
+
+    long double phi = findRoot();
+    long double rootInDSecond = derivateSecondOrder(phi,&f);
+
+    //If it's a max, we take the minimum in the edges
+    if(rootInDSecond < std::numeric_limits<long double>::epsilon())
+    {
+        if(f(graphWin.xMin()) < f(graphWin.xMax()))
+            phi = graphWin.xMin();
+        else
+            phi = graphWin.xMax();
+    }
+
+    std::cout << "Radius : " << graphWin.getRadius() << " meters" << std::endl;
+    std::cout << "Speed straight the lake : " << graphWin.getSpeedStraight() << " meters per second" << std::endl;
+    std::cout << "Speed along the lake : " << graphWin.getSpeedAlong() << " meters per second" << std::endl << std::endl;
+    std::cout << "SOLUTION : " << std::endl;
+    std::cout << "You should go along the lake with an angle of " << phi*180.0/M_PI << "°" << std::endl;
+    std::cout << "You'll take " << f(phi) << " seconds" << std::endl;
+    std::cout << "You'll travel " << 2.0*distanceAlong(phi) + distanceStraight(phi) << " meters" << std::endl;
 }

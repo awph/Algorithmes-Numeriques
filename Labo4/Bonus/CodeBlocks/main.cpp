@@ -33,12 +33,13 @@ int main()
 	setlocale(LC_ALL, "frs");
 
     printHeader();
-    cout << "Please enter the speed to go straight in the lake: ";
+    cout << "Please enter the speed to go straight through the lake: ";
     double speedStraight = fabs(readDouble());
     cout << "Please enter the speed to go along the lake : ";
     double speedAlong = fabs(readDouble());
+    cout << "Please enter the radius of the lake : ";
+    double radius = fabs(readDouble());//Change nothing in the graph, the curves have the same behavior
 
-    double radius = 2.0d;//Change nothing in the graph, the curves have the same behavior
     double x_min = 0.0f;
     double x_max = M_PI/2.0f;
     double y_min = -2.0d*radius;
