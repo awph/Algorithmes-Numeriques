@@ -48,7 +48,7 @@ const vector<pair<string,long double> > createMapGold()
     }
     else
     {
-        cerr << "Error during the reading process !";
+        cerr << "Error while reading datas !";
         exit (EXIT_FAILURE);
     }
 }

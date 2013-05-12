@@ -20,7 +20,7 @@ void clear()
 void printHeader()
 {
     cout << "|===========================================|" << endl
-         << "|Program realized by :                      |" << endl
+         << "|Program implemented by :                   |" << endl
          << "|                        - Diego Antognini  |" << endl
          << "|                        - Alexandre Perez  |" << endl
          << "|                        - Sebastien Vaucher|" << endl
@@ -39,8 +39,8 @@ bool sortDoublePair(std::pair<std::string, std::pair<std::string, long double> >
 
 vector<pair<string, long double> > computeBestMomentToBuyGoldForOneYear(int iStart)
 {
-    /*For each day, we'll compute the delta of the inflation and add it to the vector
-    We'll return the GeomGlut::nbMaxNumberOfBenefitsToDisplay best delta*/
+    /*For each day, we compute the delta of the inflation and add it to the vector
+    We return the GeomGlut::nbMaxNumberOfBenefitsToDisplay best delta*/
 
     vector<pair<string, long double> > bestMoments;
     const vector<pair<string, long double> > goldInflations = graphWin.getGoldInflations();
@@ -57,8 +57,8 @@ vector<pair<string, long double> > computeBestMomentToBuyGoldForOneYear(int iSta
 
 vector<pair<string, pair<string, long double> > > computeBestMomentToBuyGoldForAnyTime(int iStart)
 {
-    /*We'll find the biggest inflations since the start and keep it.
-    Afterwards, we'll keep the GeomGlut::nbMaxNumberOfBenefitsToDisplay best*/
+    /*We find the biggest inflations since the start and store it.
+    Afterwards, we keep the best GeomGlut::nbMaxNumberOfBenefitsToDisplay*/
 
     vector<pair<string, pair<string, long double> > > bestMoments;
     const vector<pair<string, long double> > goldInflations = graphWin.getGoldInflations();
@@ -77,7 +77,7 @@ int findIndexGoldValues(const string& date)
 {
     const vector<pair<string, long double> > goldValues = graphWin.getGoldValues();
     unsigned int i = 0;
-    //We search the index of the date in the vector goldValue
+    //We search for the index of the date in the vector goldValue
     for(;i < goldValues.size() && date != goldValues[i].first;++i){}
     return i;
 }
@@ -159,15 +159,15 @@ void drawFunctions()
     const vector<pair<string, long double> > goldValues = graphWin.getGoldValues();
     const vector<pair<string, long double> > goldInflations = graphWin.getGoldInflations();
 
-    cout << "x axe starts in " << goldValues[0].first << " and finish in the during the year " << goldValues[goldValues.size()-1].first << "." << endl << "Each unity represents a broker day" << endl << endl;
-    cout << "y axe represents the value of the gold, in CHF or in %, depending the graphic" << endl << endl;
-    cout << "Graphical Informations : " << endl
+    cout << "x axis starts at " << goldValues[0].first << " and finishes at " << goldValues[goldValues.size()-1].first << "." << endl << "Each unit represents a broker day" << endl << endl;
+    cout << "y axis represents the value of gold, in CHF or in %, depending on the graphic" << endl << endl;
+    cout << "Graphical Information : " << endl
               << "- Gold value in Swiss franc [CHF], in blue" << endl
               << "- Inflation in percent [%] with a factor 2 (to have a better display), in green" << endl
               << "- Best period to buy gold during one year, since 1979, in light red" << endl
               << "- Best period to buy gold to have the biggest benefits, since 1993, in dark red" << endl
-              << "- Best period to buy gold during one year, since 1993, in light rose" << endl
-              << "- Best period to buy gold to have the biggest benefits, since 1979, in dark rose" << endl;
+              << "- Best period to buy gold during one year, since 1993, in light pink" << endl
+              << "- Best period to buy gold to have the biggest benefits, since 1979, in dark pink" << endl;
 
     //Plot gold values
     string oldYear="";

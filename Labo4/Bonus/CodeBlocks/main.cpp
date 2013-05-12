@@ -33,11 +33,11 @@ int main()
 	setlocale(LC_ALL, "frs");
 
     printHeader();
-    cout << "Please enter the speed to go straight through the lake: ";
+    cout << "Please enter the speed you'll travel on the lake [m/s]: ";
     double speedStraight = fabs(readDouble());
-    cout << "Please enter the speed to go along the lake : ";
+    cout << "Please enter the speed you'll travel along the lake [m/s]: ";
     double speedAlong = fabs(readDouble());
-    cout << "Please enter the radius of the lake : ";
+    cout << "Please enter the radius of the lake [m]: ";
     double radius = fabs(readDouble());//Change nothing in the graph, the curves have the same behavior
 
     double x_min = 0.0f;

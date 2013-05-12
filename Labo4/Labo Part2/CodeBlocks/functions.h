@@ -14,7 +14,7 @@ std::string longDoubleToString(long double a);
 void plotBestTimeToBuyDuringOneYear(float r, float g, float b, int iStart = 0);
 void plotBestTimeToBuyDuringAnyTime(float r, float g, float b, int iStart = 0);
 
-/*Function use to sort*/
+/*Function used to sort*/
 bool sortSinglePair(std::pair<std::string, long double> a, std::pair<std::string, long double> b);
 bool sortDoublePair(std::pair<std::string, std::pair<std::string, long double> > a, std::pair<std::string, std::pair<std::string, long double> > b);
 

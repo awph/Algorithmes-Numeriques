@@ -18,7 +18,7 @@ void clear()
 void printHeader()
 {
     cout << "|===========================================|" << endl
-         << "|Program realized by :                      |" << endl
+         << "|Program implemented by :                   |" << endl
          << "|                        - Diego Antognini  |" << endl
          << "|                        - Alexandre Perez  |" << endl
          << "|                        - Sebastien Vaucher|" << endl
@@ -98,14 +98,14 @@ void drawFunctions()
 
     clear();
     printHeader();
-    std::cout << "x is in the subset [" << graphWin.xMin() << ";" << graphWin.xMax() << "[" << std::endl;
-    std::cout << "y is in the subset [" << graphWin.yMin() << ";" << graphWin.yMax() << "[" << std::endl << std::endl;
-    std::cout << "Graphical Informations : " << std::endl
-              << "- Function choosen (f(x)) in orange" << std::endl
+    std::cout << "x is in range [" << graphWin.xMin() << ";" << graphWin.xMax() << "[" << std::endl;
+    std::cout << "y is in range [" << graphWin.yMin() << ";" << graphWin.yMax() << "[" << std::endl << std::endl;
+    std::cout << "Graphical Information : " << std::endl
+              << "- Chosen function (f(x)) in orange" << std::endl
               << "- First derivative in gray" << std::endl
-              << "- Second derivative in rose" << std::endl
-              << "- The axes x,y are in bleu, respectively in [rad] and [s]" << std::endl
-              << "- The unitary vectors are in red " << std::endl << std::endl;
+              << "- Second derivative in pink" << std::endl
+              << "- The axis x,y are in blue, respectively in [rad] and [s]" << std::endl
+              << "- The unit vectors are in red " << std::endl << std::endl;
 
     long double phi = findRoot();
     long double rootInDSecond = derivateSecondOrder(phi,&f);
@@ -120,7 +120,7 @@ void drawFunctions()
     }
 
     std::cout << "Radius : " << graphWin.getRadius() << " meters" << std::endl;
-    std::cout << "Speed straight the lake : " << graphWin.getSpeedStraight() << " meters per second" << std::endl;
+    std::cout << "Speed on the lake : " << graphWin.getSpeedStraight() << " meters per second" << std::endl;
     std::cout << "Speed along the lake : " << graphWin.getSpeedAlong() << " meters per second" << std::endl << std::endl;
     std::cout << "SOLUTION : " << std::endl;
     std::cout << "You should go along the lake with an angle of " << phi*180.0/M_PI << "°" << std::endl;
