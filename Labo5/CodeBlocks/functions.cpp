@@ -20,21 +20,21 @@ void printHeader()
          << "|===========================================|" << endl;
 }
 
-double f(double x)
+long double f(long double x)
 {
     return 4.0d/(1.0d + x*x);
 }
 
-double simpsons(double(*f)(double), double a, double b, int n)
+long double simpsons(long double(*f)(long double), long double a, long double b, int n)
 {
     //If n is odd, we transform it to even
     if(n%2 == 1)
         ++n;
 
-    double h = (b-a)/static_cast<double>(n);
-    double sum = 0.0d;
+    long double h = (b-a)/static_cast<long double>(n);
+    long double sum = 0.0d;
 
-    //if j is even, we multiplie the result of f(a+j*h) by 2, else by 4
+    //if j is even, we multiply the result of f(a+j*h) by 2, else by 4
     for(int j = 1; j < n; ++j)
         sum += f(a+j*h) * ((j%2 == 0) ? 2.0d : 4.0d);
 
@@ -60,16 +60,15 @@ void drawIntegral()
 
     //We plot the average value of the function (=pi)
 
-    double pi = simpsons(&f,0.0,1.0,190);//best n to have the most accurate pi approximation with simpson
+    long double pi = simpsons(&f,0.0,1.0,494);//best n to have the most accurate pi approximation with simpson
     graphWin.plotRetangle(0,0,1,0,1,pi,0,pi);
     graphWin.print(0,f(0), "f(x) = 4(1+x^2)", 1.0f, 0.5f, 0.05);
-
 
     clear();
     printHeader();
     std::cout << "x is in range [" << graphWin.xMin() << ";" << graphWin.xMax() << "[" << std::endl;
     std::cout << "y is in range [" << graphWin.yMin() << ";" << graphWin.yMax() << "[" << std::endl << std::endl;
-    std::cout << "The approximation of Pi (result of the integral) is "<< std::fixed << std::setprecision(16) << pi << endl;
+    std::cout << "The approximation of Pi (result of the integral) is "<< std::fixed << std::setprecision(19) << pi << endl;
 
     std::cout << "Graphical Information : " << endl
               << "- The dark area represents the integral of the function f(x)" << endl

@@ -6,8 +6,8 @@
 void clear();
 void printHeader();
 
-double f(double x);
-double simpsons(double(*f)(double), double a, double b, int n);
+long double f(long double x);
+long double simpsons(long double(*f)(long double), long double a, long double b, int n);
 void drawIntegral();
 
 #endif // FUNCTIONS_H
