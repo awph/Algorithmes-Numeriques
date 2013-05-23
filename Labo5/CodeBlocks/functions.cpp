@@ -66,7 +66,7 @@ void drawIntegral()
 
     clear();
     printHeader();
-    std::cout << "x is in range [" << graphWin.xMin() << ";" << graphWin.xMax() << "[" << std::endl;
+    std::cout << std::fixed << std::setprecision(2) << "x is in range [" << graphWin.xMin() << ";" << graphWin.xMax() << "[" << std::endl;
     std::cout << "y is in range [" << graphWin.yMin() << ";" << graphWin.yMax() << "[" << std::endl << std::endl;
     std::cout << "The approximation of Pi (result of the integral) is "<< std::fixed << std::setprecision(19) << pi << endl;
 
