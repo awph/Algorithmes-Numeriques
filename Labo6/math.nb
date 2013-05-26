@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[     61208,       1212]
-NotebookOptionsPosition[     60807,       1194]
-NotebookOutlinePosition[     61156,       1209]
-CellTagsIndexPosition[     61113,       1206]
+NotebookDataLength[     63011,       1260]
+NotebookOptionsPosition[     62653,       1243]
+NotebookOutlinePosition[     62997,       1258]
+CellTagsIndexPosition[     62954,       1255]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -21,6 +21,8 @@ Notebook[{
 Cell[BoxData[
  RowBox[{"Clear", "[", "\"\<Global`*\>\"", "]"}]], "Input",
  CellChangeTimes->{{3.578499072638155*^9, 3.5784990777995043`*^9}}],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[{
  RowBox[{
@@ -106,19 +108,25 @@ Cell[BoxData[{
        RowBox[{"y", "[", "t", "]"}]}], "}"}], ",", 
      RowBox[{"{", 
       RowBox[{"t", ",", "0", ",", "80"}], "}"}], ",", 
-     RowBox[{"PlotRange", "\[Rule]", 
-      RowBox[{"{", 
-       RowBox[{
-        RowBox[{"{", 
-         RowBox[{"0", ",", "80"}], "}"}], ",", 
-        RowBox[{"{", 
-         RowBox[{"0", ",", "5000"}], "}"}]}], "}"}]}], ",", 
      RowBox[{"PlotLegends", "\[Rule]", 
       RowBox[{"{", 
        RowBox[{
        "\"\<y avec frottement\>\"", ",", "\"\<y sans frottement\>\""}], 
        "}"}]}], ",", 
-     RowBox[{"PlotLabel", "\[Rule]", "\"\<Comparaison y[t]\>\""}]}], "]"}]}], 
+     RowBox[{"PlotLabel", "\[Rule]", "\"\<Comparaison y[t]\>\""}], ",", 
+     RowBox[{"AxesLabel", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"\"\<t[s]\>\"", ",", "\"\<y[m]\>\""}], "}"}]}], ",", 
+     RowBox[{"AxesStyle", "\[Rule]", 
+      RowBox[{"Arrowheads", "[", 
+       RowBox[{"{", "0.04", "}"}], "]"}]}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"0", ",", "90"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", "6000"}], "}"}]}], "}"}]}]}], "]"}]}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"vvf", "=", 
@@ -135,8 +143,22 @@ Cell[BoxData[{
        RowBox[{
        "\"\<v avec frottement\>\"", ",", "\"\<v sans frottement\>\""}], 
        "}"}]}], ",", 
-     RowBox[{"PlotLabel", "\[Rule]", "\"\<Comparaison y'[t]\>\""}]}], "]"}]}],
-   ";"}], "\[IndentingNewLine]", 
+     RowBox[{"PlotLabel", "\[Rule]", "\"\<Comparaison y'[t]\>\""}], ",", 
+     RowBox[{"AxesLabel", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"\"\<t[s]\>\"", ",", "\"\<v[m/s]\>\""}], "}"}]}], ",", 
+     RowBox[{"AxesStyle", "\[Rule]", 
+      RowBox[{"Arrowheads", "[", 
+       RowBox[{"{", "0.04", "}"}], "]"}]}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"0", ",", "90"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", "100"}], ",", "10"}], "}"}]}], "}"}]}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"aaf", "=", 
    RowBox[{"Plot", "[", 
@@ -152,8 +174,24 @@ Cell[BoxData[{
        RowBox[{
        "\"\<a avec frottement\>\"", ",", "\"\<a sans frottement\>\""}], 
        "}"}]}], ",", 
-     RowBox[{"PlotLabel", "\[Rule]", "\"\<Comparaison y''[t]\>\""}]}], 
-    "]"}]}], ";"}], "\[IndentingNewLine]", 
+     RowBox[{"PlotLabel", "\[Rule]", "\"\<Comparaison y''[t]\>\""}], ",", 
+     RowBox[{"AxesLabel", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<t[s]\>\"", ",", 
+        "\"\<a[m/\!\(\*SuperscriptBox[\(s\), \(2\)]\)]\>\""}], "}"}]}], ",", 
+     RowBox[{"AxesStyle", "\[Rule]", 
+      RowBox[{"Arrowheads", "[", 
+       RowBox[{"{", "0.04", "}"}], "]"}]}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"0", ",", "90"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", "10"}], ",", "1"}], "}"}]}], "}"}]}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"afvf", "=", 
    RowBox[{"Plot", "[", 
@@ -169,8 +207,28 @@ Cell[BoxData[{
        RowBox[{
        "\"\<a avec frottement\>\"", ",", "\"\<v avec frottement\>\""}], 
        "}"}]}], ",", 
-     RowBox[{"PlotLabel", "\[Rule]", "\"\<Comparaison y'[t] & y''[t]\>\""}]}],
-     "]"}]}], ";"}]}], "Input",
+     RowBox[{"PlotLabel", "\[Rule]", "\"\<Comparaison y'[t] & y''[t]\>\""}], 
+     ",", 
+     RowBox[{"AxesLabel", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<t[s]\>\"", ",", 
+        "\"\<v[m/s]\\na[m/\!\(\*SuperscriptBox[\(s\), \(2\)]\)]\>\""}], 
+       "}"}]}], ",", 
+     RowBox[{"AxesStyle", "\[Rule]", 
+      RowBox[{"Arrowheads", "[", 
+       RowBox[{"{", "0.04", "}"}], "]"}]}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"0", ",", "90"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", "80"}], ",", "10"}], "}"}]}], "}"}]}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"{", 
+  RowBox[{"yyf", ",", "vvf", ",", "aaf", ",", "afvf"}], "}"}]}], "Input",
  CellChangeTimes->{{3.5784980732954035`*^9, 3.5784982826653547`*^9}, {
   3.5784986857865267`*^9, 3.5784986884183836`*^9}, {3.5784988245707397`*^9, 
   3.578498828218757*^9}, {3.578498931748364*^9, 3.578498987779436*^9}, {
@@ -179,14 +237,11 @@ Cell[BoxData[{
   3.578499452629341*^9, 3.578499459301489*^9}, {3.578499668708704*^9, 
   3.578499714607684*^9}, {3.578500573100403*^9, 3.5785005858067446`*^9}, {
   3.578500690697073*^9, 3.5785006943631506`*^9}, {3.578501126496518*^9, 
-  3.578501133244102*^9}, {3.578501195136966*^9, 3.5785011985108023`*^9}}],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"{", 
-  RowBox[{"yyf", ",", "vvf", ",", "aaf", ",", "afvf"}], "}"}]], "Input",
- CellChangeTimes->{{3.5785011631177635`*^9, 3.578501206515572*^9}}],
+  3.578501133244102*^9}, {3.578501195136966*^9, 3.5785011985108023`*^9}, {
+  3.5785729154189425`*^9, 3.5785729353417387`*^9}, {3.5785731364395523`*^9, 
+  3.5785731823933644`*^9}, {3.5785732203594236`*^9, 3.578573250318699*^9}, {
+  3.578573311345231*^9, 3.5785733572910304`*^9}, {3.5785734221788254`*^9, 
+  3.5785735619668717`*^9}}],
 
 Cell[BoxData[
  RowBox[{"{", 
@@ -273,10 +328,12 @@ KRuaeRdfCFrBHqH2ukYgdLr6gT/9C/BXf/6HdN1xMP97Uw7P/B5YT3lfSw8w
 hkLp+fHbenlgy089oqpqAnnxWWe1xrJA8Nw1qvW/piCjKFvHv5IBbNlXBy2c
 zaBbtcXRReYGMNDqpdEVDsCmw9llfiCoJHf8c3UOAe3P+j9vLUXd
          "]]}}, AspectRatio -> NCache[GoldenRatio^(-1), 0.6180339887498948], 
-      Axes -> True, AxesLabel -> {None, None}, AxesOrigin -> {0, 0}, 
-      Method -> {}, PlotLabel -> 
+      Axes -> True, AxesLabel -> {
+        FormBox["\"t[s]\"", TraditionalForm], 
+        FormBox["\"y[m]\"", TraditionalForm]}, AxesOrigin -> {0, 0}, 
+      AxesStyle -> Arrowheads[{0.04}], Method -> {}, PlotLabel -> 
       FormBox["\"Comparaison y[t]\"", TraditionalForm], 
-      PlotRange -> {{0, 80}, {0, 5000}}, PlotRangeClipping -> True, 
+      PlotRange -> {{0, 90}, {0, 6000}}, PlotRangeClipping -> True, 
       PlotRangePadding -> {Automatic, Automatic}],
      TemplateBox[{"\"y avec frottement\"", "\"y sans frottement\""}, 
       "LineLegend", DisplayFunction -> (StyleBox[
@@ -487,43 +544,27 @@ z2781h0+T8Jo8hunNWcW511YXCSB5YrK0zXfOrkuoGKZhEZ/6eE1P6D7Gces
 kvAoZ5ZPALt0x+ttBn9x/b3TjddcPSu19O8fif97XKFr/h/TCJPF
          "]]}, {
         Hue[0.9060679774997897, 0.6, 0.6], 
-        LineBox[CompressedData["
-1:eJwVxX081HccAHDcYS9Pm2pe6eFcJXIhXmWTxX3QIo/HlyxWcR4jxc0tnIfz
-eL+0jOaFlDwtq1dFRXslzX3moXacs2h6YFMeapTmcDjEtj/er/cW7infcDUV
-FRXP//x/eRpXwzqs2WFbQnHTK8lUS3sf0yOAeYH9VqEmn5PKxKsPW7KYzGvs
-wo9TJA3Sv8TleM5IndnEDr90z+a89L34hD0/dt5IwpYN98dkSFfEfUtRRVNG
-z9k0jdcaSVI91BwYNp00GmeXl8Q+SZAysKqzIv6tkZIdE2zdzJNaYl39mYET
-llpgHSI7rq4DGMl+fOEdby1c59Wb+D51wZNjZiONdYZwSFL7qUDgjVpbsk2H
-bJkQdqrQ/d4wwfxPulhVwduAs+KgO4YByB3wE9OkJlD5znL9gjwI4zuyuadM
-WdC+su7yA81gvB2nQ9YftACfg3lWBjMhWCWImbAKsILCtso3w5phmFmx7DP7
-zhomVi0rXJXhqNL3Eh4k74b8bqfQsZeRaJIQkejHsoHRznl3hfw4jipKDmn/
-8hmQPGOby0Mx6DYWnXo+3hYSkqad7s/FotdowU4Gww7ky9V1GmpxONHGFf52
-8wvYc/mjB8tzcWip37/Z+Zg9cJ62BN1Q4aEWWxEyOOMASfJbgqsLPHSZDJzf
-6g+QXDNjcVQ9AZ+1hqkGmjvCVkZSxC5dPt6l2o8yFY7Qn2Rn5En7FiPU+S9l
-MicIi/WINtY7jaE8wV2dMmf44Fhm46qZiLsid8o8QvaD/RBLJFpKxJ415tr8
-vV/CoXU6MUJ6MjbXZV40px0AAcusp2MpGQWqLI70zwOQ9Ky4o10zBbUGk11P
-NrrAZm8XpyG9VByr3VJUkeIKstrd7AP0NCzaYUhv8j8IXxXHySL00rGgLOJR
-CNMNEhtm3x+nCTGw6IhM540bGAh791qmCnFh/xVlRYs7VJY+8/RWzcCRMafE
-VpEH3KlaripOycBqe+uN3SGecGvOVWynlok3c/j6kRZesGdfwyb19EwU+Ye6
-0xReoP3awf6IMhNtBquuibq9oWdg2mRNWhaWml282e3OgQ2t7ZxJZRam47lS
-9yYOcGZbnLcLs9Fzo/+VTmMfeJ73QjlBy0HHk4+C9M/4wN/666b603KwYhPX
-WKrwgdFRfr0RPReN234q9gryhcirirp8YS4WWLSyelt8wf734vizi7kYMUN/
-LGERWHUO/jCaJkLu7Wnmme8JuFx1kYQtivBEJll2KySwpm/7vu+WRcgnjU91
-fiAw+IFW37AiQkrBzy8oJsAjWKRGo7Bur3KppJzApRXb4EptCpW/rvbXXicw
-5ceaH9hEYUGvzrn2RwRKVXW3EzaFZTWxUbkSAqHmb0uSHSmsSZA5u3YRsAiQ
-aFU7U/izQcFil4xA242cqSkXCgcD10b1/UFgMmClOZ9DoemIofPwCAHHun98
-O0MotGpMZvw4RkD7eXeHPJRCu5wBZfgbAv20G7aGERR6mJbfGp8gEH04ihEV
-TSEvhsmQywkU0V+Nq39DYcq+DOWdGQLHdom/tuBTmKM7/CRBQcAssLzH7zSF
-pfU1ZxcWCIjrD9+tEVBYLaRH3l8kkPfi8x1dqRRe9wl3Slkm4KducHE6ncLG
-rQ83O6wQYFjN6m7IpLBlxkS5ukpgPLBX6JhN4b/NmWe2
-         "]]}}, AspectRatio -> NCache[GoldenRatio^(-1), 0.6180339887498948], 
-      Axes -> True, AxesLabel -> {None, None}, AxesOrigin -> {0, 0}, 
-      Method -> {}, PlotLabel -> 
+        LineBox[{{1.6326530612244897`*^-6, -0.00001601085714285714}, {
+         0.024537433644770137`, -0.24063002365248506`}, {
+         0.04907323463647905, -0.48124403644782726`}, {
+         0.09814483661989688, -0.9624720620385118}, {
+         0.19628804058673255`, -1.9249281132198806`}, {
+         0.39257444852040385`, -3.8498402155826184`}, {
+         0.7851472643877465, -7.6996644203080935`}, {
+         1.5702928961224318`, -15.399312829759046`}, {
+         3.2726685668366917`, -32.09391520096904}, {
+         4.862230685612167, -47.68219455305856}, {
+         6.420611905510084, -62.96469374317046}, {
+         8.111077532652889, -79.54249848559044}, {
+         9.68872960785691, -95.01398020888996}, {
+         10.197162129779283`, -100.}}]}}, AspectRatio -> 
+      NCache[GoldenRatio^(-1), 0.6180339887498948], Axes -> True, AxesLabel -> {
+        FormBox["\"t[s]\"", TraditionalForm], 
+        FormBox["\"v[m/s]\"", TraditionalForm]}, AxesOrigin -> {0, 0}, 
+      AxesStyle -> Arrowheads[{0.04}], Method -> {}, PlotLabel -> 
       FormBox["\"Comparaison y'[t]\"", TraditionalForm], 
-      PlotRange -> {{0, 80}, {-784.5319839891428, 0.}}, PlotRangeClipping -> 
-      True, PlotRangePadding -> {
-        Scaled[0.02], 
-        Scaled[0.02]}],
+      PlotRange -> {{0, 90}, {-100, 10}}, PlotRangeClipping -> True, 
+      PlotRangePadding -> {Automatic, Automatic}],
      TemplateBox[{"\"v avec frottement\"", "\"v sans frottement\""}, 
       "LineLegend", DisplayFunction -> (StyleBox[
         StyleBox[
@@ -753,13 +794,15 @@ KH020RfOX9taKpiu6wfnt4cmezN/RfBN7yxc2X7WH86foTl77VnvADi//kDv
 DO+dCL6vdOjSUyqBcL5j3vFowU4Ef75MksqZrwi+yuHl0/yigxD+0z2kdWkf
 gp/2meXiSa1gRHrc+Emhsx/Bn3CJp/fIcQR/32e1n///I/gARqNRaQ==
          "]]}}, AspectRatio -> NCache[GoldenRatio^(-1), 0.6180339887498948], 
-      Axes -> True, AxesLabel -> {None, None}, AxesOrigin -> {0, 0}, 
-      Method -> {}, PlotLabel -> 
+      Axes -> True, AxesLabel -> {
+        FormBox["\"t[s]\"", TraditionalForm], 
+        FormBox[
+        "\"a[m/\\!\\(\\*SuperscriptBox[\\(s\\), \\(2\\)]\\)]\"", 
+         TraditionalForm]}, AxesOrigin -> {0, 0}, AxesStyle -> 
+      Arrowheads[{0.04}], Method -> {}, PlotLabel -> 
       FormBox["\"Comparaison y''[t]\"", TraditionalForm], 
-      PlotRange -> {{0, 80}, {-9.80665, 0.}}, PlotRangeClipping -> True, 
-      PlotRangePadding -> {
-        Scaled[0.02], 
-        Scaled[0.02]}],
+      PlotRange -> {{0, 90}, {-10, 1}}, PlotRangeClipping -> True, 
+      PlotRangePadding -> {Automatic, Automatic}],
      TemplateBox[{"\"a avec frottement\"", "\"a sans frottement\""}, 
       "LineLegend", DisplayFunction -> (StyleBox[
         StyleBox[
@@ -1095,13 +1138,15 @@ t038+zVbS18vGRsnIWY2Q5sfO2y/uOj0NAmTfuWLa47ZfWrp8SwJyrwOMpux
 z2781h0+T8Jo8hunNWcW511YXCSB5YrK0zXfOrkuoGKZhEZ/6eE1P6D7Gces
 kvAoZ5ZPALt0x+ttBn9x/b3TjddcPSu19O8fif97XKFr/h/TCJPF
          "]]}}, AspectRatio -> NCache[GoldenRatio^(-1), 0.6180339887498948], 
-      Axes -> True, AxesLabel -> {None, None}, AxesOrigin -> {0, 0}, 
-      Method -> {}, PlotLabel -> 
+      Axes -> True, AxesLabel -> {
+        FormBox["\"t[s]\"", TraditionalForm], 
+        FormBox[
+        "\"v[m/s]\\na[m/\\!\\(\\*SuperscriptBox[\\(s\\), \\(2\\)]\\)]\"", 
+         TraditionalForm]}, AxesOrigin -> {0, 0}, AxesStyle -> 
+      Arrowheads[{0.04}], Method -> {}, PlotLabel -> 
       FormBox["\"Comparaison y'[t] & y''[t]\"", TraditionalForm], 
-      PlotRange -> {{0, 80}, {-77.67324472947891, 0.}}, PlotRangeClipping -> 
-      True, PlotRangePadding -> {
-        Scaled[0.02], 
-        Scaled[0.02]}],
+      PlotRange -> {{0, 90}, {-80, 10}}, PlotRangeClipping -> True, 
+      PlotRangePadding -> {Automatic, Automatic}],
      TemplateBox[{"\"a avec frottement\"", "\"v avec frottement\""}, 
       "LineLegend", DisplayFunction -> (StyleBox[
         StyleBox[
@@ -1189,11 +1234,15 @@ kvAoZ5ZPALt0x+ttBn9x/b3TjddcPSu19O8fif97XKFr/h/TCJPF
        RowBox[{#, ",", 
          RowBox[{"Placed", "[", 
            RowBox[{#2, ",", "After"}], "]"}]}], "]"}]& )]}], "}"}]], "Output",
- CellChangeTimes->{3.5785012071260414`*^9}]
+ CellChangeTimes->{
+  3.5785012071260414`*^9, {3.578572911524605*^9, 3.578572937322392*^9}, 
+   3.578573150608514*^9, 3.578573185602048*^9, {3.578573244390749*^9, 
+   3.57857325124251*^9}, {3.5785733129536533`*^9, 3.5785733586592083`*^9}, {
+   3.578573423249729*^9, 3.578573527344631*^9}, 3.5785735623491898`*^9}]
 }, Open  ]]
 },
-WindowSize->{1920, 1027},
-WindowMargins->{{1432, Automatic}, {Automatic, -66}},
+WindowSize->{1904, 1011},
+WindowMargins->{{0, Automatic}, {0, Automatic}},
 FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
 StyleDefinitions->"Default.nb"
 ]
@@ -1209,10 +1258,9 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[557, 20, 141, 2, 60, "Input"],
-Cell[701, 24, 5252, 157, 871, "Input"],
 Cell[CellGroupData[{
-Cell[5978, 185, 169, 3, 60, "Input"],
-Cell[6150, 190, 54641, 1001, 589, "Output"]
+Cell[723, 26, 7493, 217, 1111, "Input"],
+Cell[8219, 245, 54418, 995, 646, "Output"]
 }, Open  ]]
 }
 ]
