@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[     63011,       1260]
-NotebookOptionsPosition[     62653,       1243]
-NotebookOutlinePosition[     62997,       1258]
-CellTagsIndexPosition[     62954,       1255]
+NotebookDataLength[     48347,        989]
+NotebookOptionsPosition[     47870,        968]
+NotebookOutlinePosition[     48213,        983]
+CellTagsIndexPosition[     48170,        980]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -100,148 +100,119 @@ Cell[BoxData[{
    RowBox[{"-", "g"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"yyf", "=", 
-   RowBox[{"Plot", "[", 
+   RowBox[{"Labeled", "[", 
     RowBox[{
-     RowBox[{"{", 
+     RowBox[{"Plot", "[", 
       RowBox[{
-       RowBox[{"yf", "[", "t", "]"}], ",", 
-       RowBox[{"y", "[", "t", "]"}]}], "}"}], ",", 
-     RowBox[{"{", 
-      RowBox[{"t", ",", "0", ",", "80"}], "}"}], ",", 
-     RowBox[{"PlotLegends", "\[Rule]", 
-      RowBox[{"{", 
-       RowBox[{
-       "\"\<y avec frottement\>\"", ",", "\"\<y sans frottement\>\""}], 
-       "}"}]}], ",", 
-     RowBox[{"PlotLabel", "\[Rule]", "\"\<Comparaison y[t]\>\""}], ",", 
-     RowBox[{"AxesLabel", "\[Rule]", 
-      RowBox[{"{", 
-       RowBox[{"\"\<t[s]\>\"", ",", "\"\<y[m]\>\""}], "}"}]}], ",", 
-     RowBox[{"AxesStyle", "\[Rule]", 
-      RowBox[{"Arrowheads", "[", 
-       RowBox[{"{", "0.04", "}"}], "]"}]}], ",", 
-     RowBox[{"PlotRange", "\[Rule]", 
-      RowBox[{"{", 
-       RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"yf", "[", "t", "]"}], ",", 
+         RowBox[{"y", "[", "t", "]"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"t", ",", "0", ",", "80"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"AxesLabel", "\[Rule]", 
         RowBox[{"{", 
-         RowBox[{"0", ",", "90"}], "}"}], ",", 
+         RowBox[{
+          RowBox[{"Style", "[", 
+           RowBox[{"\"\<t[s]\>\"", ",", "8"}], "]"}], ",", 
+          RowBox[{"Style", "[", 
+           RowBox[{"\"\<y[m]\>\"", ",", "8"}], "]"}]}], "}"}]}], ",", 
+       RowBox[{"AxesStyle", "\[Rule]", 
+        RowBox[{"Arrowheads", "[", 
+         RowBox[{"{", "0.04", "}"}], "]"}]}], ",", 
+       RowBox[{"PlotRange", "\[Rule]", 
         RowBox[{"{", 
-         RowBox[{"0", ",", "6000"}], "}"}]}], "}"}]}]}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"0", ",", "90"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"0", ",", "6000"}], "}"}]}], "}"}]}]}], "]"}], ",", 
+     RowBox[{"Style", "[", 
+      RowBox[{"\"\<Graphe comparant les positions y(t)\>\"", ",", "7"}], 
+      "]"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"vvf", "=", 
-   RowBox[{"Plot", "[", 
+   RowBox[{"Labeled", "[", 
     RowBox[{
-     RowBox[{"{", 
+     RowBox[{"Plot", "[", 
       RowBox[{
-       RowBox[{"vf", "[", "t", "]"}], ",", 
-       RowBox[{"v", "[", "t", "]"}]}], "}"}], ",", 
-     RowBox[{"{", 
-      RowBox[{"t", ",", "0", ",", "80"}], "}"}], ",", 
-     RowBox[{"PlotLegends", "\[Rule]", 
-      RowBox[{"{", 
-       RowBox[{
-       "\"\<v avec frottement\>\"", ",", "\"\<v sans frottement\>\""}], 
-       "}"}]}], ",", 
-     RowBox[{"PlotLabel", "\[Rule]", "\"\<Comparaison y'[t]\>\""}], ",", 
-     RowBox[{"AxesLabel", "\[Rule]", 
-      RowBox[{"{", 
-       RowBox[{"\"\<t[s]\>\"", ",", "\"\<v[m/s]\>\""}], "}"}]}], ",", 
-     RowBox[{"AxesStyle", "\[Rule]", 
-      RowBox[{"Arrowheads", "[", 
-       RowBox[{"{", "0.04", "}"}], "]"}]}], ",", 
-     RowBox[{"PlotRange", "\[Rule]", 
-      RowBox[{"{", 
-       RowBox[{
-        RowBox[{"{", 
-         RowBox[{"0", ",", "90"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"vf", "[", "t", "]"}], ",", 
+         RowBox[{"v", "[", "t", "]"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"t", ",", "0", ",", "80"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"AxesLabel", "\[Rule]", 
         RowBox[{"{", 
          RowBox[{
-          RowBox[{"-", "100"}], ",", "10"}], "}"}]}], "}"}]}]}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
+          RowBox[{"Style", "[", 
+           RowBox[{"\"\<t[s]\>\"", ",", "8"}], "]"}], ",", 
+          RowBox[{"Style", "[", 
+           RowBox[{"\"\<v[m/s]\>\"", ",", "8"}], "]"}]}], "}"}]}], ",", 
+       RowBox[{"AxesStyle", "\[Rule]", 
+        RowBox[{"Arrowheads", "[", 
+         RowBox[{"{", "0.04", "}"}], "]"}]}], ",", 
+       RowBox[{"PlotRange", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"0", ",", "90"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"-", "100"}], ",", "10"}], "}"}]}], "}"}]}]}], "]"}], ",", 
+     RowBox[{"Style", "[", 
+      RowBox[{
+      "\"\<Graphe comparant les vitesses y\[CloseCurlyQuote](t)\>\"", ",", 
+       "7"}], "]"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"aaf", "=", 
-   RowBox[{"Plot", "[", 
+   RowBox[{"Labeled", "[", 
     RowBox[{
-     RowBox[{"{", 
+     RowBox[{"Plot", "[", 
       RowBox[{
-       RowBox[{"af", "[", "t", "]"}], ",", 
-       RowBox[{"a", "[", "t", "]"}]}], "}"}], ",", 
-     RowBox[{"{", 
-      RowBox[{"t", ",", "0", ",", "80"}], "}"}], ",", 
-     RowBox[{"PlotLegends", "\[Rule]", 
-      RowBox[{"{", 
-       RowBox[{
-       "\"\<a avec frottement\>\"", ",", "\"\<a sans frottement\>\""}], 
-       "}"}]}], ",", 
-     RowBox[{"PlotLabel", "\[Rule]", "\"\<Comparaison y''[t]\>\""}], ",", 
-     RowBox[{"AxesLabel", "\[Rule]", 
-      RowBox[{"{", 
-       RowBox[{
-       "\"\<t[s]\>\"", ",", 
-        "\"\<a[m/\!\(\*SuperscriptBox[\(s\), \(2\)]\)]\>\""}], "}"}]}], ",", 
-     RowBox[{"AxesStyle", "\[Rule]", 
-      RowBox[{"Arrowheads", "[", 
-       RowBox[{"{", "0.04", "}"}], "]"}]}], ",", 
-     RowBox[{"PlotRange", "\[Rule]", 
-      RowBox[{"{", 
-       RowBox[{
-        RowBox[{"{", 
-         RowBox[{"0", ",", "90"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"af", "[", "t", "]"}], ",", 
+         RowBox[{"a", "[", "t", "]"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"t", ",", "0", ",", "80"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"AxesLabel", "\[Rule]", 
         RowBox[{"{", 
          RowBox[{
-          RowBox[{"-", "10"}], ",", "1"}], "}"}]}], "}"}]}]}], "]"}]}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"afvf", "=", 
-   RowBox[{"Plot", "[", 
-    RowBox[{
-     RowBox[{"{", 
-      RowBox[{
-       RowBox[{"af", "[", "t", "]"}], ",", 
-       RowBox[{"vf", "[", "t", "]"}]}], "}"}], ",", 
-     RowBox[{"{", 
-      RowBox[{"t", ",", "0", ",", "80"}], "}"}], ",", 
-     RowBox[{"PlotLegends", "\[Rule]", 
-      RowBox[{"{", 
-       RowBox[{
-       "\"\<a avec frottement\>\"", ",", "\"\<v avec frottement\>\""}], 
-       "}"}]}], ",", 
-     RowBox[{"PlotLabel", "\[Rule]", "\"\<Comparaison y'[t] & y''[t]\>\""}], 
-     ",", 
-     RowBox[{"AxesLabel", "\[Rule]", 
-      RowBox[{"{", 
-       RowBox[{
-       "\"\<t[s]\>\"", ",", 
-        "\"\<v[m/s]\\na[m/\!\(\*SuperscriptBox[\(s\), \(2\)]\)]\>\""}], 
-       "}"}]}], ",", 
-     RowBox[{"AxesStyle", "\[Rule]", 
-      RowBox[{"Arrowheads", "[", 
-       RowBox[{"{", "0.04", "}"}], "]"}]}], ",", 
-     RowBox[{"PlotRange", "\[Rule]", 
-      RowBox[{"{", 
-       RowBox[{
-        RowBox[{"{", 
-         RowBox[{"0", ",", "90"}], "}"}], ",", 
+          RowBox[{"Style", "[", 
+           RowBox[{"\"\<t[s]\>\"", ",", "8"}], "]"}], ",", 
+          RowBox[{"Style", "[", 
+           RowBox[{
+           "\"\<a[m/\!\(\*SuperscriptBox[\(s\), \(2\)]\)]\>\"", ",", "8"}], 
+           "]"}]}], "}"}]}], ",", 
+       RowBox[{"AxesStyle", "\[Rule]", 
+        RowBox[{"Arrowheads", "[", 
+         RowBox[{"{", "0.04", "}"}], "]"}]}], ",", 
+       RowBox[{"PlotRange", "\[Rule]", 
         RowBox[{"{", 
          RowBox[{
-          RowBox[{"-", "80"}], ",", "10"}], "}"}]}], "}"}]}]}], "]"}]}], 
+          RowBox[{"{", 
+           RowBox[{"0", ",", "90"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"-", "10"}], ",", "1"}], "}"}]}], "}"}]}]}], "]"}], ",", 
+     RowBox[{"Style", "[", 
+      RowBox[{
+      "\"\<Graphe comparant les acc\[EAcute]l\[EAcute]rations y\
+\[CloseCurlyQuote]\[CloseCurlyQuote](t)\>\"", ",", "7"}], "]"}]}], "]"}]}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{"{", 
-  RowBox[{"yyf", ",", "vvf", ",", "aaf", ",", "afvf"}], "}"}]}], "Input",
- CellChangeTimes->{{3.5784980732954035`*^9, 3.5784982826653547`*^9}, {
-  3.5784986857865267`*^9, 3.5784986884183836`*^9}, {3.5784988245707397`*^9, 
-  3.578498828218757*^9}, {3.578498931748364*^9, 3.578498987779436*^9}, {
-  3.578499030064093*^9, 3.578499038628228*^9}, {3.578499087082334*^9, 
-  3.578499140089296*^9}, {3.578499211307759*^9, 3.5784992256175623`*^9}, {
-  3.578499452629341*^9, 3.578499459301489*^9}, {3.578499668708704*^9, 
-  3.578499714607684*^9}, {3.578500573100403*^9, 3.5785005858067446`*^9}, {
-  3.578500690697073*^9, 3.5785006943631506`*^9}, {3.578501126496518*^9, 
-  3.578501133244102*^9}, {3.578501195136966*^9, 3.5785011985108023`*^9}, {
-  3.5785729154189425`*^9, 3.5785729353417387`*^9}, {3.5785731364395523`*^9, 
-  3.5785731823933644`*^9}, {3.5785732203594236`*^9, 3.578573250318699*^9}, {
-  3.578573311345231*^9, 3.5785733572910304`*^9}, {3.5785734221788254`*^9, 
-  3.5785735619668717`*^9}}],
+  RowBox[{"yyf", ",", "vvf", ",", "aaf"}], "}"}]}], "Input",
+ CellChangeTimes->CompressedData["
+1:eJwdz08oQwEAx/E3KdNsZlIiaYhGmX/5dyD52wqLJidqZrMi7e2wF6VlxcHF
+YV4pkz+ZRnLgQMvFWi1bvVcmY4URh23NLC6T8n7v8O1z/sq18yPTGQRBFHPB
+lFlhM7miXbRK44DtNZcM1E+JWWjtlkVgLrHKu5myJGDFF/UDxeLrNCSLgr9w
+ce9VQHLawstCqHgw5kGZpzEfrpfblTBwYKyD5ye0ClaSo2pobd53w0e27QrO
+Do3dwMS2n3fhjSHMnKfMoQBmaXXZcGmc5U0b5iQ058pnVApZqaQamuiAEuqt
+a03Q16BqhWU5sU5Yqnb1wuSFdxA6kh2T8IMS7jxx9tSzu3DrL+6EM6LbI+gn
+Qx5YSIW9sK8l5IfxF/09PFYXROBG7dk7LAlKYpBlIryUyNL/jM87wwCUU6Zh
+mOn2aaC96nsCOr06I/wHOLXxdw==
+  "]],
 
 Cell[BoxData[
  RowBox[{"{", 
@@ -329,99 +300,31 @@ hkLp+fHbenlgy089oqpqAnnxWWe1xrJA8Nw1qvW/piCjKFvHv5IBbNlXBy2c
 zaBbtcXRReYGMNDqpdEVDsCmw9llfiCoJHf8c3UOAe3P+j9vLUXd
          "]]}}, AspectRatio -> NCache[GoldenRatio^(-1), 0.6180339887498948], 
       Axes -> True, AxesLabel -> {
-        FormBox["\"t[s]\"", TraditionalForm], 
-        FormBox["\"y[m]\"", TraditionalForm]}, AxesOrigin -> {0, 0}, 
-      AxesStyle -> Arrowheads[{0.04}], Method -> {}, PlotLabel -> 
-      FormBox["\"Comparaison y[t]\"", TraditionalForm], 
+        FormBox[
+         StyleBox["\"t[s]\"", 8, StripOnInput -> False], TraditionalForm], 
+        FormBox[
+         StyleBox["\"y[m]\"", 8, StripOnInput -> False], TraditionalForm]}, 
+      AxesOrigin -> {0, 0}, AxesStyle -> Arrowheads[{0.04}], Method -> {}, 
       PlotRange -> {{0, 90}, {0, 6000}}, PlotRangeClipping -> True, 
-      PlotRangePadding -> {Automatic, Automatic}],
-     TemplateBox[{"\"y avec frottement\"", "\"y sans frottement\""}, 
-      "LineLegend", DisplayFunction -> (StyleBox[
-        StyleBox[
-         PaneBox[
-          TagBox[
-           GridBox[{{
-              TagBox[
-               GridBox[{{
-                  GraphicsBox[{{
-                    Directive[
-                    EdgeForm[{
-                    Opacity[0.3], 
-                    GrayLevel[0]}], 
-                    Hue[0.67, 0.6, 0.6]], {
-                    LineBox[{{0, 10}, {20, 10}}]}}, {
-                    Directive[
-                    EdgeForm[{
-                    Opacity[0.3], 
-                    GrayLevel[0]}], 
-                    Hue[0.67, 0.6, 0.6]], {}}}, AspectRatio -> Full, 
-                   ImageSize -> {20, 10}, PlotRangePadding -> None, 
-                   ImagePadding -> 1, 
-                   BaselinePosition -> (Scaled[0.1] -> Baseline)], #}, {
-                  GraphicsBox[{{
-                    Directive[
-                    EdgeForm[{
-                    Opacity[0.3], 
-                    GrayLevel[0]}], 
-                    Hue[0.9060679774997897, 0.6, 0.6]], {
-                    LineBox[{{0, 10}, {20, 10}}]}}, {
-                    Directive[
-                    EdgeForm[{
-                    Opacity[0.3], 
-                    GrayLevel[0]}], 
-                    Hue[0.9060679774997897, 0.6, 0.6]], {}}}, AspectRatio -> 
-                   Full, ImageSize -> {20, 10}, PlotRangePadding -> None, 
-                   ImagePadding -> 1, 
-                   BaselinePosition -> (Scaled[0.1] -> Baseline)], #2}}, 
-                GridBoxAlignment -> {
-                 "Columns" -> {Center, Left}, "Rows" -> {{Baseline}}}, 
-                AutoDelete -> False, 
-                GridBoxDividers -> {
-                 "Columns" -> {{False}}, "Rows" -> {{False}}}, 
-                GridBoxItemSize -> {"Columns" -> {{All}}, "Rows" -> {{All}}}, 
-                GridBoxSpacings -> {"Columns" -> {{0.5}}, "Rows" -> {{0.8}}}],
-                "Grid"]}}, 
-            GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
-            AutoDelete -> False, 
-            GridBoxItemSize -> {
-             "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
-            GridBoxSpacings -> {"Columns" -> {{1}}, "Rows" -> {{0}}}], 
-           "Grid"], Alignment -> Left, AppearanceElements -> None, 
-          ImageMargins -> {{5, 5}, {5, 5}}, ImageSizeAction -> "ResizeToFit"],
-          LineIndent -> 0, StripOnInput -> False], {FontFamily -> "Times"}, 
-        Background -> Automatic, StripOnInput -> False]& ), Editable -> True, 
-      InterpretationFunction :> (RowBox[{"LineLegend", "[", 
-         RowBox[{
-           RowBox[{"{", 
-             RowBox[{
-               RowBox[{"Directive", "[", 
-                 RowBox[{"Hue", "[", 
-                   RowBox[{"0.67`", ",", "0.6`", ",", "0.6`"}], "]"}], "]"}], 
-               ",", 
-               RowBox[{"Directive", "[", 
-                 RowBox[{"Hue", "[", 
-                   RowBox[{"0.9060679774997897`", ",", "0.6`", ",", "0.6`"}], 
-                   "]"}], "]"}]}], "}"}], ",", 
-           RowBox[{"{", 
-             RowBox[{#, ",", #2}], "}"}], ",", 
-           RowBox[{"LegendLayout", "\[Rule]", "\"Column\""}]}], "]"}]& )]},
-    "Legended",
+      PlotRangePadding -> {Automatic, Automatic}],StyleBox[
+     "\"Graphe comparant les positions y(t)\"", StripOnInput -> False, 
+      FontSize -> 7]},
+    "Labeled",
     DisplayFunction->(GridBox[{{
         TagBox[
          ItemBox[
           PaneBox[
            TagBox[#, "SkipImageSizeLevel"], Alignment -> {Center, Baseline}, 
            BaselinePosition -> Baseline], DefaultBaseStyle -> "Labeled"], 
-         "SkipImageSizeLevel"], 
+         "SkipImageSizeLevel"]}, {
         ItemBox[#2, DefaultBaseStyle -> "LabeledLabel"]}}, 
       GridBoxAlignment -> {"Columns" -> {{Center}}, "Rows" -> {{Center}}}, 
-      AutoDelete -> False, GridBoxItemSize -> Automatic, 
+      AutoDelete -> False, 
+      GridBoxItemSize -> {
+       "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
       BaselinePosition -> {1, 1}]& ),
-    Editable->True,
-    InterpretationFunction->(RowBox[{"Legended", "[", 
-       RowBox[{#, ",", 
-         RowBox[{"Placed", "[", 
-           RowBox[{#2, ",", "After"}], "]"}]}], "]"}]& )], ",", 
+    InterpretationFunction->(RowBox[{"Labeled", "[", 
+       RowBox[{#, ",", #2}], "]"}]& )], ",", 
    TemplateBox[{GraphicsBox[{{}, {}, {
         Hue[0.67, 0.6, 0.6], 
         LineBox[CompressedData["
@@ -559,99 +462,31 @@ kvAoZ5ZPALt0x+ttBn9x/b3TjddcPSu19O8fif97XKFr/h/TCJPF
          9.68872960785691, -95.01398020888996}, {
          10.197162129779283`, -100.}}]}}, AspectRatio -> 
       NCache[GoldenRatio^(-1), 0.6180339887498948], Axes -> True, AxesLabel -> {
-        FormBox["\"t[s]\"", TraditionalForm], 
-        FormBox["\"v[m/s]\"", TraditionalForm]}, AxesOrigin -> {0, 0}, 
-      AxesStyle -> Arrowheads[{0.04}], Method -> {}, PlotLabel -> 
-      FormBox["\"Comparaison y'[t]\"", TraditionalForm], 
+        FormBox[
+         StyleBox["\"t[s]\"", 8, StripOnInput -> False], TraditionalForm], 
+        FormBox[
+         StyleBox["\"v[m/s]\"", 8, StripOnInput -> False], TraditionalForm]}, 
+      AxesOrigin -> {0, 0}, AxesStyle -> Arrowheads[{0.04}], Method -> {}, 
       PlotRange -> {{0, 90}, {-100, 10}}, PlotRangeClipping -> True, 
-      PlotRangePadding -> {Automatic, Automatic}],
-     TemplateBox[{"\"v avec frottement\"", "\"v sans frottement\""}, 
-      "LineLegend", DisplayFunction -> (StyleBox[
-        StyleBox[
-         PaneBox[
-          TagBox[
-           GridBox[{{
-              TagBox[
-               GridBox[{{
-                  GraphicsBox[{{
-                    Directive[
-                    EdgeForm[{
-                    Opacity[0.3], 
-                    GrayLevel[0]}], 
-                    Hue[0.67, 0.6, 0.6]], {
-                    LineBox[{{0, 10}, {20, 10}}]}}, {
-                    Directive[
-                    EdgeForm[{
-                    Opacity[0.3], 
-                    GrayLevel[0]}], 
-                    Hue[0.67, 0.6, 0.6]], {}}}, AspectRatio -> Full, 
-                   ImageSize -> {20, 10}, PlotRangePadding -> None, 
-                   ImagePadding -> 1, 
-                   BaselinePosition -> (Scaled[0.1] -> Baseline)], #}, {
-                  GraphicsBox[{{
-                    Directive[
-                    EdgeForm[{
-                    Opacity[0.3], 
-                    GrayLevel[0]}], 
-                    Hue[0.9060679774997897, 0.6, 0.6]], {
-                    LineBox[{{0, 10}, {20, 10}}]}}, {
-                    Directive[
-                    EdgeForm[{
-                    Opacity[0.3], 
-                    GrayLevel[0]}], 
-                    Hue[0.9060679774997897, 0.6, 0.6]], {}}}, AspectRatio -> 
-                   Full, ImageSize -> {20, 10}, PlotRangePadding -> None, 
-                   ImagePadding -> 1, 
-                   BaselinePosition -> (Scaled[0.1] -> Baseline)], #2}}, 
-                GridBoxAlignment -> {
-                 "Columns" -> {Center, Left}, "Rows" -> {{Baseline}}}, 
-                AutoDelete -> False, 
-                GridBoxDividers -> {
-                 "Columns" -> {{False}}, "Rows" -> {{False}}}, 
-                GridBoxItemSize -> {"Columns" -> {{All}}, "Rows" -> {{All}}}, 
-                GridBoxSpacings -> {"Columns" -> {{0.5}}, "Rows" -> {{0.8}}}],
-                "Grid"]}}, 
-            GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
-            AutoDelete -> False, 
-            GridBoxItemSize -> {
-             "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
-            GridBoxSpacings -> {"Columns" -> {{1}}, "Rows" -> {{0}}}], 
-           "Grid"], Alignment -> Left, AppearanceElements -> None, 
-          ImageMargins -> {{5, 5}, {5, 5}}, ImageSizeAction -> "ResizeToFit"],
-          LineIndent -> 0, StripOnInput -> False], {FontFamily -> "Times"}, 
-        Background -> Automatic, StripOnInput -> False]& ), Editable -> True, 
-      InterpretationFunction :> (RowBox[{"LineLegend", "[", 
-         RowBox[{
-           RowBox[{"{", 
-             RowBox[{
-               RowBox[{"Directive", "[", 
-                 RowBox[{"Hue", "[", 
-                   RowBox[{"0.67`", ",", "0.6`", ",", "0.6`"}], "]"}], "]"}], 
-               ",", 
-               RowBox[{"Directive", "[", 
-                 RowBox[{"Hue", "[", 
-                   RowBox[{"0.9060679774997897`", ",", "0.6`", ",", "0.6`"}], 
-                   "]"}], "]"}]}], "}"}], ",", 
-           RowBox[{"{", 
-             RowBox[{#, ",", #2}], "}"}], ",", 
-           RowBox[{"LegendLayout", "\[Rule]", "\"Column\""}]}], "]"}]& )]},
-    "Legended",
+      PlotRangePadding -> {Automatic, Automatic}],StyleBox[
+     "\"Graphe comparant les vitesses y\[CloseCurlyQuote](t)\"", StripOnInput -> 
+      False, FontSize -> 7]},
+    "Labeled",
     DisplayFunction->(GridBox[{{
         TagBox[
          ItemBox[
           PaneBox[
            TagBox[#, "SkipImageSizeLevel"], Alignment -> {Center, Baseline}, 
            BaselinePosition -> Baseline], DefaultBaseStyle -> "Labeled"], 
-         "SkipImageSizeLevel"], 
+         "SkipImageSizeLevel"]}, {
         ItemBox[#2, DefaultBaseStyle -> "LabeledLabel"]}}, 
       GridBoxAlignment -> {"Columns" -> {{Center}}, "Rows" -> {{Center}}}, 
-      AutoDelete -> False, GridBoxItemSize -> Automatic, 
+      AutoDelete -> False, 
+      GridBoxItemSize -> {
+       "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
       BaselinePosition -> {1, 1}]& ),
-    Editable->True,
-    InterpretationFunction->(RowBox[{"Legended", "[", 
-       RowBox[{#, ",", 
-         RowBox[{"Placed", "[", 
-           RowBox[{#2, ",", "After"}], "]"}]}], "]"}]& )], ",", 
+    InterpretationFunction->(RowBox[{"Labeled", "[", 
+       RowBox[{#, ",", #2}], "]"}]& )], ",", 
    TemplateBox[{GraphicsBox[{{}, {}, {
         Hue[0.67, 0.6, 0.6], 
         LineBox[CompressedData["
@@ -795,102 +630,86 @@ DO+dCL6vdOjSUyqBcL5j3vFowU4Ef75MksqZrwi+yuHl0/yigxD+0z2kdWkf
 gp/2meXiSa1gRHrc+Emhsx/Bn3CJp/fIcQR/32e1n///I/gARqNRaQ==
          "]]}}, AspectRatio -> NCache[GoldenRatio^(-1), 0.6180339887498948], 
       Axes -> True, AxesLabel -> {
-        FormBox["\"t[s]\"", TraditionalForm], 
         FormBox[
-        "\"a[m/\\!\\(\\*SuperscriptBox[\\(s\\), \\(2\\)]\\)]\"", 
-         TraditionalForm]}, AxesOrigin -> {0, 0}, AxesStyle -> 
-      Arrowheads[{0.04}], Method -> {}, PlotLabel -> 
-      FormBox["\"Comparaison y''[t]\"", TraditionalForm], 
+         StyleBox["\"t[s]\"", 8, StripOnInput -> False], TraditionalForm], 
+        FormBox[
+         StyleBox[
+         "\"a[m/\\!\\(\\*SuperscriptBox[\\(s\\), \\(2\\)]\\)]\"", 8, 
+          StripOnInput -> False], TraditionalForm]}, AxesOrigin -> {0, 0}, 
+      AxesStyle -> Arrowheads[{0.04}], Method -> {}, 
       PlotRange -> {{0, 90}, {-10, 1}}, PlotRangeClipping -> True, 
-      PlotRangePadding -> {Automatic, Automatic}],
-     TemplateBox[{"\"a avec frottement\"", "\"a sans frottement\""}, 
-      "LineLegend", DisplayFunction -> (StyleBox[
-        StyleBox[
-         PaneBox[
-          TagBox[
-           GridBox[{{
-              TagBox[
-               GridBox[{{
-                  GraphicsBox[{{
-                    Directive[
-                    EdgeForm[{
-                    Opacity[0.3], 
-                    GrayLevel[0]}], 
-                    Hue[0.67, 0.6, 0.6]], {
-                    LineBox[{{0, 10}, {20, 10}}]}}, {
-                    Directive[
-                    EdgeForm[{
-                    Opacity[0.3], 
-                    GrayLevel[0]}], 
-                    Hue[0.67, 0.6, 0.6]], {}}}, AspectRatio -> Full, 
-                   ImageSize -> {20, 10}, PlotRangePadding -> None, 
-                   ImagePadding -> 1, 
-                   BaselinePosition -> (Scaled[0.1] -> Baseline)], #}, {
-                  GraphicsBox[{{
-                    Directive[
-                    EdgeForm[{
-                    Opacity[0.3], 
-                    GrayLevel[0]}], 
-                    Hue[0.9060679774997897, 0.6, 0.6]], {
-                    LineBox[{{0, 10}, {20, 10}}]}}, {
-                    Directive[
-                    EdgeForm[{
-                    Opacity[0.3], 
-                    GrayLevel[0]}], 
-                    Hue[0.9060679774997897, 0.6, 0.6]], {}}}, AspectRatio -> 
-                   Full, ImageSize -> {20, 10}, PlotRangePadding -> None, 
-                   ImagePadding -> 1, 
-                   BaselinePosition -> (Scaled[0.1] -> Baseline)], #2}}, 
-                GridBoxAlignment -> {
-                 "Columns" -> {Center, Left}, "Rows" -> {{Baseline}}}, 
-                AutoDelete -> False, 
-                GridBoxDividers -> {
-                 "Columns" -> {{False}}, "Rows" -> {{False}}}, 
-                GridBoxItemSize -> {"Columns" -> {{All}}, "Rows" -> {{All}}}, 
-                GridBoxSpacings -> {"Columns" -> {{0.5}}, "Rows" -> {{0.8}}}],
-                "Grid"]}}, 
-            GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
-            AutoDelete -> False, 
-            GridBoxItemSize -> {
-             "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
-            GridBoxSpacings -> {"Columns" -> {{1}}, "Rows" -> {{0}}}], 
-           "Grid"], Alignment -> Left, AppearanceElements -> None, 
-          ImageMargins -> {{5, 5}, {5, 5}}, ImageSizeAction -> "ResizeToFit"],
-          LineIndent -> 0, StripOnInput -> False], {FontFamily -> "Times"}, 
-        Background -> Automatic, StripOnInput -> False]& ), Editable -> True, 
-      InterpretationFunction :> (RowBox[{"LineLegend", "[", 
-         RowBox[{
-           RowBox[{"{", 
-             RowBox[{
-               RowBox[{"Directive", "[", 
-                 RowBox[{"Hue", "[", 
-                   RowBox[{"0.67`", ",", "0.6`", ",", "0.6`"}], "]"}], "]"}], 
-               ",", 
-               RowBox[{"Directive", "[", 
-                 RowBox[{"Hue", "[", 
-                   RowBox[{"0.9060679774997897`", ",", "0.6`", ",", "0.6`"}], 
-                   "]"}], "]"}]}], "}"}], ",", 
-           RowBox[{"{", 
-             RowBox[{#, ",", #2}], "}"}], ",", 
-           RowBox[{"LegendLayout", "\[Rule]", "\"Column\""}]}], "]"}]& )]},
-    "Legended",
+      PlotRangePadding -> {Automatic, Automatic}],StyleBox[
+     "\"Graphe comparant les acc\[EAcute]l\[EAcute]rations \
+y\[CloseCurlyQuote]\[CloseCurlyQuote](t)\"", StripOnInput -> False, FontSize -> 
+      7]},
+    "Labeled",
     DisplayFunction->(GridBox[{{
         TagBox[
          ItemBox[
           PaneBox[
            TagBox[#, "SkipImageSizeLevel"], Alignment -> {Center, Baseline}, 
            BaselinePosition -> Baseline], DefaultBaseStyle -> "Labeled"], 
-         "SkipImageSizeLevel"], 
+         "SkipImageSizeLevel"]}, {
         ItemBox[#2, DefaultBaseStyle -> "LabeledLabel"]}}, 
       GridBoxAlignment -> {"Columns" -> {{Center}}, "Rows" -> {{Center}}}, 
-      AutoDelete -> False, GridBoxItemSize -> Automatic, 
+      AutoDelete -> False, 
+      GridBoxItemSize -> {
+       "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
       BaselinePosition -> {1, 1}]& ),
-    Editable->True,
-    InterpretationFunction->(RowBox[{"Legended", "[", 
-       RowBox[{#, ",", 
-         RowBox[{"Placed", "[", 
-           RowBox[{#2, ",", "After"}], "]"}]}], "]"}]& )], ",", 
-   TemplateBox[{GraphicsBox[{{}, {}, {
+    InterpretationFunction->(RowBox[{"Labeled", "[", 
+       RowBox[{#, ",", #2}], "]"}]& )]}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.5787229907042007`*^9, {3.5787230640360928`*^9, 3.578723147367881*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Labeled", "[", 
+  RowBox[{
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"af", "[", "t", "]"}], ",", 
+       RowBox[{"a", "[", "t", "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"t", ",", "0", ",", "80"}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"PlotLegends", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<Cas avec frottement\>\"", ",", "\"\<Cas sans frottement\>\""}], 
+       "}"}]}], ",", "\[IndentingNewLine]", 
+     RowBox[{"AxesLabel", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Style", "[", 
+         RowBox[{"\"\<t[s]\>\"", ",", "8"}], "]"}], ",", 
+        RowBox[{"Style", "[", 
+         RowBox[{
+         "\"\<a[m/\!\(\*SuperscriptBox[\(s\), \(2\)]\)]\>\"", ",", "8"}], 
+         "]"}]}], "}"}]}], ",", 
+     RowBox[{"AxesStyle", "\[Rule]", 
+      RowBox[{"Arrowheads", "[", 
+       RowBox[{"{", "0.04", "}"}], "]"}]}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"0", ",", "90"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", "10"}], ",", "1"}], "}"}]}], "}"}]}]}], "]"}], ",", 
+   RowBox[{"Style", "[", 
+    RowBox[{
+    "\"\<Graphe comparant les acc\[EAcute]l\[EAcute]rations y\
+\[CloseCurlyQuote]\[CloseCurlyQuote](t)\>\"", ",", "7"}], "]"}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.5787235448566074`*^9, 3.5787235744646053`*^9}}],
+
+Cell[BoxData[
+ TemplateBox[{TemplateBox[{
+     GraphicsBox[{{}, {}, {
         Hue[0.67, 0.6, 0.6], 
         LineBox[CompressedData["
 1:eJwVlGc81Y/7h1Eho4xUZJwim2wyb+sYh4NzjEKJMioZIYQUGaESQkPKViSh
@@ -1020,134 +839,29 @@ NmZX5CevrNDB/AOLq2irNuad3+hd95sO0+uqTt7l2vjAztMocp0OY2+v2bde
          "]]}, {
         Hue[0.9060679774997897, 0.6, 0.6], 
         LineBox[CompressedData["
-1:eJwV13c01l8YAHCjyCgzZYQiZO8ZHuM1Xut9v197RlYqIUroV6lIEUlGigpN
-oiKFuKRkC0mShhVRZmb1u/6653Oec59773PHOXe7zyHCj4mBgSGAkYFhrb3+
-nw+Lim+lAQPDyWtfG6eq67vErZ3EswwZrEWvvERtNf9eV58WF79nyLCDd5Is
-Hai5jpLE1os/N2T4mpQ9kf2z5oB+xMEFsUZDYOpYvLb/b03XSmDalNgHQ5iK
-ETfj3IRYP36TnhQbMyzxDhayILahm025oT/Elgyth4znBabk0FxmmeznxCXD
-qgGPzlAPeWQW0DzYubRkmBl0rzu4SR5NMC84VHQtG6YM1J6n5SkgbX1b3YT4
-VcNF48PRlTQl1FG8yiT9659hZ8cpI10bFXSiSZ6q4sUMcc2HNjZEqKOHxQkf
-DyiyQ9Tjr66qVF00zjueSPVmhzbP8RLvw7pI+gjVQCaNHSzKX64LuaaLbuzm
-uDm4xA5CFwu4ZH/qotTGRH/XVxxgyvv4kkCKHjoymDxt7r4RVu1u/x1t3Y1y
-OZpP81C4oSJHbp2oqiEKMHybNRHGB9S6cEGet0aI4dbvio8X+ICZklJ75asR
-ylwn0t+UzwejUyPBG2eM0JtGf9F7PXzAncDG1MNrjGTsV2/56fLDicfVO1tJ
-Y/Q9ULpwgHEzmDE173TvMkZBqcerO1IE4JHSTLxRowkKHt41WPpQEGpzFaka
-qRT0xfPDhtpGQYj03n594gYFkb3nFFuHBOFQFumXUUxB2s2jx4aFhGD5l+LJ
-hhYKYn5UwC0QLwTMHh0bLrOYocyY7QZHvYThKPVFypejZqiWTzBLh3sbeIap
-rb9ON0fs289If9YWhxEhZsGqQQv0Zvclpf8o4lA/I5/b/dMCxTnnaG0jxIGV
-eEUfWrJATCnPzN32i4NBM915jMsSLf+dCHh/XRwy+3gfntezRD/6He62M20H
-X/3vp5UvWaKWTOldqGU7kLpJy1qaVHSRu1n25h4JQBmWG3MCrdBzrW1ltsES
-wFrBIx4ZZoWGPA8ZrkZLwAD/j1LLGCukV8Rn75QhAasJvLFdyVbou6X78Y1t
-EpA6mh0R+9QKmZyebD+mJwmHSoI22DNZo8V5rghCYCc0jz3s+n3ZGvl8tK9h
-bpEC6p76c8U3bBB79teDoR+kwLhEcDbqrg167Bos8nlECvrvvq43LLFBzH3x
-xyoYpWGjwNHSshoblN9boRaqJQ08dY57yAEbNPJO/O7ALWmYGf75xFXIFgV1
-TKQ8PyYDTSGN96qTbFHoqzM+h6RlQRNE9i362CHRITOW32qywCbdG9wXaIea
-mdjux4As8Fy/2l4ebId2QtJ0gossyDB+LPGNskMfKq6czL8gC7HpBs7xl+yQ
-UcntnA+/ZKGRo3fPbLUd4sl+02fyTA7IcsUYQw4aehTCSW61VICpn78UU9xp
-qOUq37EiRwWAijR5RS8aGqkXyjX2VQD6t8qJRm8aEhLc9ePACQV4qqZXtexP
-Q2dqKadryxTgfqF5q1EoDTnynngStEMRplbT3QPO0tDyk2m+FyuKkOzQsm5b
-IQ3djN4/ruykDAZPEyXSZmlIGbEtxnsogysLx9/EeRpC6+6u/7xXGVh28FDO
-LNDQl6Qh8aQQZQiIfbEteIWGRG94OI0lKIPWjmsiSsx0dLXerv5mlTI8knX2
-C+Clo9SN6jm8O1TA4Gx/+nMlOorNXaXPTahAVsoMy05/OqIpPwuVm1WBZ+bi
-6hUBdCRae/iSz5IKbGT4KGG7j44qvo13dKxXhdWLH2zDDtDRzM4PdkWiqqDp
-/W/yQRgd+RSW2fjTVKE9PFNq+D86MnoebNn7RBVCJnNYj6TTEUPXF6iKUoPy
-s9H7TOro6MxY9c2oU2qwtb2zsPAlHbExXGfSOacGIY8FX/C/oiNeBZf6sitq
-EOqXYPG1gY52xr81Ly5Rg9pZivSBVjqi6tXZ3hrB8TSeIcteOrqcl+d+jlCH
-FNGfCvKTdCQV7h9pL6sBrIwJCzV8BFLQ/UzmKmvAX5dbER38BFJncFYa19SA
-gLRM4S+bCWScaDlywkQDFobefF3dQiDPfHn7B+4aEP/2/T55EQKld88oMSVr
-gBFtcmWvJIHWa5wYLZ7VgMRHY7d11Ak0NJ/hyPFCE5Ksvhy6SSfQLSO1w59e
-aoLujXeplwkCeSW1JRc3acJC2K3hMySB+iTXN5K9mpDwMmmbnwOB3pJhetdm
-NWHfpy3jwi4Eqn5kLa4gqwVxN4OT9+4hUMZBxnHbDC0IU7d/5hVMIOpw0PHU
-UG0oaSvbqnSOQGbHJQpNI7WBS9b+1U9s4839fb//0waBfIWOogQC6VJstN0S
-tYGa+4RJ9gKBZAuUZiXuaMMwDIwJXSQQh99cYFm/NkyjVo3PlwnUMnTcvtdc
-B9467naczyGQ7VCKnKioLpytr/gR9gTH5Ya63SV1IYbnUx5zKYGsDmv9ly2r
-C0VH+MYvY1swDXRs1dIFvaUdO56U4fmIyx3ho+lCUNx56kQ5gTTcX6ENsbpw
-hDjTaFlFIJHuJYfZYV0wTPXue1JPoPGXPiffFOlB8KVyI8duAold6g26WKoH
-c2P3xN5j23vaOthX6sGm8Kxkp3e4Xos6sl/e6EFF+KiUUw+BUhV4uhcG9eA0
-X6g+vZdAehk10tJCu2G24rWrSj+BEoNE2s/G7YbLCUtNeYMEUuTp2WbipQ8u
-iudVfKcJNJI0EnvFTx+EOmscXmFfZ18YHd2vD2lqifJSMwTiXLf1cWKkPnjV
-fJ4ZwR7/7WLWc0kfgpV2jvnOEaig/1Pwvnp9uDIs8YhYwOu7O1yTvMsAQi4y
-2iysEojdcN67f9YADPSiNoWykijSSGbD02UD2HGz16QBe8TE7WEyoyEYdL9R
-3LaBRHUWtcvGXIYQdcRL6g12FJF0+Z6sIRh5e+UJsZPoh9/OV0e8DYFjXT3H
-Y04StSQ6yPC0G0JYyrxJIQ+JzCddF3Y4APxiZ9z6UYhEOfynu044A1DeqpiL
-CZNoTu9Bcb8bwJBw+u692DfOrwSk+wDs53oRNY69LH2tly0EIFq4x/K3CIkK
-fT49nzoPoF6r58EsRiLuXq+YagQQQe+8MbeDRL11voyu8kYg3ljori9Loimj
-PqHjSkawzuZFewg2a62d+g1VIxj7KiKUj61Zoxswom0EAl8sNdjlSJRWyd0a
-RjGCC+x957qx7UqrMi94GkHBhaPIW4FErwv4lV+kGEFoQ5WllzKJys7Ve4rP
-G8FCN2hNapDoLrV5a/yiEfCq+i8KaZLoKmdn5+SKEZwZpaVaYJ9M+WxWyWQM
-qm9WaXnY1pnLio7cxnCf2+GPoxaJvt1R/ndBzhgcpj4rlmuTaFPDtdwFb2Pw
-NA3qcdMjkf/6iC9tbcagQy6P7gYSCYk1vl95awy1wLTHC7tNe1u7zDtjCCkJ
-rTqFrXng1YvYj8bQuvfzjtfYLF2bszW/G8Oyh/tdGyMSFdx46pDDaALLh9/d
-dTIm0ZDeYtNBdROI/sDK72xKor1h0WWcV03gBCXm3yYLnE91oGzXdROQcue6
-I4vNPgNPzW6YANvjSW0z7JJQlvKTt01gm3qH8HHs1ZBLz+YemwA3yfJlDDv9
-0J3K/mYTQOUfQmosSdR4oKu28I8J+E+el3KzIpFSgFybtbcpCB7ItHa2JdHA
-PrFDRb6mcL+vejoEO/EAH/emQFPYVTN2KgF7LHSF3h5sCh12aXsrsPNimt/R
-Y0zhC6uCorAdibak7v/kmGEKLh41v3qx/1U9mNjTagpciYvZFDqJ2nnlOSJ0
-KBBS8UdqlCSRwcGDY9m7KXDD6lnVEvbDhocNdYYUaPB4aMJpT6KLMSpnuM0o
-kPEjeqcKtvWI5p8HBAV4Z7/pRGE3PTf69W0/BXYUzRWzOZDo1R6nLloOBe48
-nBATdSRR5cPYbHlmM8h53xco5oz3w9pBKIPFDAKCo8eVsOlj0lmM7GYg6zPs
-AdijEq3pPdxm0Ek1E/LG5svaknpS1AzG9FLGb2LvP114rlvHDOo9X86Ku5BI
-2LknIibEDEwD4pb5XUkUzShLa/lkBk/aD1u8d8P325SjV+qrGaQ7ujkPYdPO
-TXidGjKDpzNaHtPYklzFhzR/mIFuxTyFwx3fZxH15BuLZpC7HJdmgC2qbdAW
-zmcOFBcmxTzsumDCepulOeTO9qf4euDz0B9lEVxqDjV7RGcaPfF5OXpvY3K5
-OYRSTNu6sL15ezuLK8yhMzvv1ifsZxYaHtPIHHrFpNWnsf3LfoWGt5rDSZaJ
-5S1eJKq96JsdNWIO70oeifh6rb1Xtj/jtlrAtSKXvt/Yw7e3p+XGWMCWyIpI
-Vm8STZz5usR80gI8BiiG3NgzPje9Ak9bgKwJ7e9WbAax7XIq5y3gYNGKnyy2
-UIZ4XV2GBfQ7ePVbY9PixaaGH1vA25q+oBTsqoBt1vJjFtDBmqrD64PfBxnB
-dc8dLOHl7c4hxr0kcveUujPobAm1b4dObcCWTFOjbnK3hCq/YkEu7NJ/Nil7
-fSzB8OZ/OiLY3T2xIpsOWUJ6epSuJjbf2Qn1vecsYbtAPGUfdurXGr+NlZbw
-G3Zfa8ZOuerf4C1OhZJZEclYXxIdPRJ7OEaCCqmqCofjsT2JHLEMKSrMd22u
-TsSWZ+852iJPBVP94+YZ2I3HKDJaOlTQ3PxPphCbyUUygZOgwtn5rF3vsCO2
-fKOWn6YCzzCzlqQfiVzTPNo4R6lg9SprVzm2yBN24f3jVJBxfTFcif35bXlA
-4yQVZMs+XkfYvly8jHFzVPD0EWBqwg4+/1rtH6MVcB37drUfO/akUta0iBU0
-q77kZvQn0b0DjL49hBVM3z8paY69aFqwlFttBRHC37PeYMdU5p6ur7WCAil7
-+RZsBtWrG8fqrUC+5EdlOzarWPJ21WYruKV+u7MHW2Ap0rL+vRVEu8cPDGGr
-FVlnfZ+ygiSV0VCGADyfzXPaKhLWMPJDNl0De3DYOLIu3hoMg16aZ2Ib57bd
-kr1gDZ31KeHZ2DecXVtTL1rDmEB+Tg62Z3Pojr1XrOH0n4LxfOy+khstzHnW
-oD/q5PMIuzP6rzil2hpajY50NmLX8VQ0NsxZQ1u9+atF7Fv6KsKt3jYgqXTk
-gF0gjtuyn17xtYG41lsddOxvXoPjuwJtAA4PqdpjS8ReqYgLtoHLy4XTztj5
-r5dcINoGcquOO/tgF9jVZT5Js4EFxZCWcOy73qTA1QYbYNj+wykTu+hsBE+A
-gi2ItbJY92FP7PaIPatsCyuO67X6seXnTGfz1GzBo/WU+AD2fR/+d190bGGL
-/tLPr2v5DJ9kuprZwuJ25qixtfGXpsRsvWyh60285SL21YMHFDUu2UKRm1UP
-/z4SxTvstWKetwXhWxmDlti37Prd/RZtoVdwKtMKu8rSIbhhxRaMs7qsbbBn
-9M0vXWCyA/fbUELDdpeSe8/HbQdsp975OWGrLsz4SMrZwdD6lURf7IHM2CiK
-tx2w/D3bdRxbo//mvfhWOzBZGD1ZiM2tGLhY3GEHHYE3m4qwJ04omvd22cGm
-vfZ8xdj5EpVDMn12UKh+/+YjbP793WJNI3Zw9Y/c46fYyzHMViwMNGhL08tD
-2B84NGstBGngab6+uQs7c1d2UasVDZzKBN0WsOdmzQpO29AgeKL1xCK2XfXM
-NR07Ghg/PJu3hM1CUhMLCBrs0Wb+voIdEbMUdNyFBiZstn4MQSQi2p1kFAJo
-EGn/SYUNmzOCPy8xlgZXBC5vFcI+gZIyrZ7TgDEn31wHe/wTSluqoME+RVUl
-XWzHldmUO1U0YL2/slkPW17TNYEZ0eDMsunX3di9D6SiKl/TQI/1ZTBgq2bU
-uMl104BmsOJnjj1ycFqU4xcNZKqeNNpj2wg7FDRJ0uHxS4f4g9iZQ4rITYoO
-Pqv8msHYQ0UbPk5I08Femjq05hio4uaSo8M461bDEOxCP4kYUoUOCS02P8Ow
-2UumiX59OszznFCLxG4wvcjw05EOMYPdbrHYRsENbjwJdGCtlNG9gr3cO2ZW
-f54OksS1d2suNeFUPZpIh9WX50PSsaUE6Rs+JdPh7r8P+Rlr9arvK72bTgde
-bVvWq2vrFfy5EfLpcCTq15Mc7JBX/Ci4hg4djtzFd7BzRXwkW+bpsHs8yuQZ
-tq6anKLPAh2St2Q/W3O35ZzW4iIdPmd5KDzH3nA0zkpylQ4Db5o2V6zle3s/
-LIaJgM2zNt8qsSFuFslzEWDcohVUg/3t1xmPJBkC2qxStF5jS768k27rRgCf
-Fvm+E7tNfjG/352A2+E0jS7syHSLJ0GeBOQwrru85uZ9Y+1x3gQUTV206cYO
-45ZjqwkgoHefbs077BqPh9FK4QToBAle6cV2XSzdw51EgMfjaM4B7BSFOtnO
-agKOaARofMe+q+3GFosIcMlSTlhzjcncqEod7l/xuH/NP12kCi69IkBp57fY
-MWyruPNi9BYCnNTnmsexWT4T/B0fCGBTF6RPYkenDP5pnSNAyH9VZgbbf3bd
-20ZZEqQltIVXsD3vm7a5y5Ngc2yf65odvc80/1IggfdOYNaazdqZX29WIeGq
-zFuB1bX9fMBU6a2FLWDH9Qd72IehYMmEhOp28YW/2L6dK5G7PEiwX5HKY9pP
-Ip9HM+IJySSsVpSHs2EfiCVXqZdISFw493DNEWTpe87LJGxYlfq+5nPzERdT
-0knYztvkyo79UGdpJeM6Cfu8HulzYC/V/uu5/YAEBW+5ZU7slE7OpPoGEsIk
-V225sa/mHQyMayQhnFYZu+a88DYTi2YShAqsn675qUDKcnMbCdeCRkR4sPtd
-+QK73pHwtG15dM3Sg4Im3wZJGHvTGMGHrVwaJZo/TEKkbvXtNeue/bjkN0pC
-t038+zVbS18vGRsnIWY2Q5sfO2y/uOj0NAmTfuWLa47ZfWrp8SwJyrwOMpux
-z2781h0+T8Jo8hunNWcW511YXCSB5YrK0zXfOrkuoGKZhEZ/6eE1P6D7Gces
-kvAoZ5ZPALt0x+ttBn9x/b3TjddcPSu19O8fif97XKFr/h/TCJPF
+1:eJxTTMoPSmViYGAwAWIQPbcuic0wZbcd6+JJVoxzlQ+w336k/lb+pT2Mv/DU
+/MLX8j/h/HXrO2/n6HE5wPjp9hdnvikShvPznmo+3rJOEs7nUmxRv2+hAOf3
+CZzWWpigDOcn3Q7Zz3xGDc4vPNqSlK+uBedvLOAJlvDUhfMXVme/Mgg3gPOb
+5v8J/PLGEM5nuPzAYU+VMZyvVpJWEaJlCuc/+To9jHuvGZzv9TSrdlKhBZzv
+92SCtpycFZz/6nBSw4m11nC+nuA1Wed4W4T/7L8m3vlsB+e7v436rhTqAOff
+OJTCGKXjCOdv7TgSp/AVwU9jLX1w7pwTnJ9cVL2VZ5YznK+frn3OJ9EFzj8v
+pMNdaukK5+9e1zRbh9kNzq9m1Ao4cxfB57pT5ZG3xR3Of7pMccr8Gg84f4qG
+JMvOUE84f8KstOOJCl5wftSU2HM8zxH8Hy5Lf87f5w3nP37qVHGo3QfOX2Rr
+KH020RfOX9taKpiu6wfnt4cmezN/RfBN7yxc2X7WH86foTl77VnvADi//kDv
+DO+dCL6vdOjSUyqBcL5j3vFowU4Ef75MksqZrwi+yuHl0/yigxD+0z2kdWkf
+gp/2meXiSa1gRHrc+Emhsx/Bn3CJp/fIcQR/32e1n///I/gARqNRaQ==
          "]]}}, AspectRatio -> NCache[GoldenRatio^(-1), 0.6180339887498948], 
       Axes -> True, AxesLabel -> {
-        FormBox["\"t[s]\"", TraditionalForm], 
         FormBox[
-        "\"v[m/s]\\na[m/\\!\\(\\*SuperscriptBox[\\(s\\), \\(2\\)]\\)]\"", 
-         TraditionalForm]}, AxesOrigin -> {0, 0}, AxesStyle -> 
-      Arrowheads[{0.04}], Method -> {}, PlotLabel -> 
-      FormBox["\"Comparaison y'[t] & y''[t]\"", TraditionalForm], 
-      PlotRange -> {{0, 90}, {-80, 10}}, PlotRangeClipping -> True, 
-      PlotRangePadding -> {Automatic, Automatic}],
-     TemplateBox[{"\"a avec frottement\"", "\"v avec frottement\""}, 
+         StyleBox["\"t[s]\"", 8, StripOnInput -> False], TraditionalForm], 
+        FormBox[
+         StyleBox[
+         "\"a[m/\\!\\(\\*SuperscriptBox[\\(s\\), \\(2\\)]\\)]\"", 8, 
+          StripOnInput -> False], TraditionalForm]}, AxesOrigin -> {0, 0}, 
+      AxesStyle -> Arrowheads[{0.04}], Method -> {}, 
+      PlotRange -> {{0, 90}, {-10, 1}}, PlotRangeClipping -> True, 
+      PlotRangePadding -> {Automatic, Automatic}], 
+     TemplateBox[{"\"Cas avec frottement\"", "\"Cas sans frottement\""}, 
       "LineLegend", DisplayFunction -> (StyleBox[
         StyleBox[
          PaneBox[
@@ -1216,9 +930,8 @@ kvAoZ5ZPALt0x+ttBn9x/b3TjddcPSu19O8fif97XKFr/h/TCJPF
                    "]"}], "]"}]}], "}"}], ",", 
            RowBox[{"{", 
              RowBox[{#, ",", #2}], "}"}], ",", 
-           RowBox[{"LegendLayout", "\[Rule]", "\"Column\""}]}], "]"}]& )]},
-    "Legended",
-    DisplayFunction->(GridBox[{{
+           RowBox[{"LegendLayout", "\[Rule]", "\"Column\""}]}], "]"}]& )]}, 
+    "Legended", DisplayFunction -> (GridBox[{{
         TagBox[
          ItemBox[
           PaneBox[
@@ -1228,21 +941,33 @@ kvAoZ5ZPALt0x+ttBn9x/b3TjddcPSu19O8fif97XKFr/h/TCJPF
         ItemBox[#2, DefaultBaseStyle -> "LabeledLabel"]}}, 
       GridBoxAlignment -> {"Columns" -> {{Center}}, "Rows" -> {{Center}}}, 
       AutoDelete -> False, GridBoxItemSize -> Automatic, 
-      BaselinePosition -> {1, 1}]& ),
-    Editable->True,
-    InterpretationFunction->(RowBox[{"Legended", "[", 
+      BaselinePosition -> {1, 1}]& ), Editable -> True, 
+    InterpretationFunction -> (RowBox[{"Legended", "[", 
        RowBox[{#, ",", 
          RowBox[{"Placed", "[", 
-           RowBox[{#2, ",", "After"}], "]"}]}], "]"}]& )]}], "}"}]], "Output",
- CellChangeTimes->{
-  3.5785012071260414`*^9, {3.578572911524605*^9, 3.578572937322392*^9}, 
-   3.578573150608514*^9, 3.578573185602048*^9, {3.578573244390749*^9, 
-   3.57857325124251*^9}, {3.5785733129536533`*^9, 3.5785733586592083`*^9}, {
-   3.578573423249729*^9, 3.578573527344631*^9}, 3.5785735623491898`*^9}]
+           RowBox[{#2, ",", "After"}], "]"}]}], "]"}]& )],StyleBox[
+   "\"Graphe comparant les acc\[EAcute]l\[EAcute]rations y\[CloseCurlyQuote]\
+\[CloseCurlyQuote](t)\"", StripOnInput -> False, FontSize -> 7]},
+  "Labeled",
+  DisplayFunction->(GridBox[{{
+      TagBox[
+       ItemBox[
+        PaneBox[
+         TagBox[#, "SkipImageSizeLevel"], Alignment -> {Center, Baseline}, 
+         BaselinePosition -> Baseline], DefaultBaseStyle -> "Labeled"], 
+       "SkipImageSizeLevel"]}, {
+      ItemBox[#2, DefaultBaseStyle -> "LabeledLabel"]}}, 
+    GridBoxAlignment -> {"Columns" -> {{Center}}, "Rows" -> {{Center}}}, 
+    AutoDelete -> False, 
+    GridBoxItemSize -> {"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+    BaselinePosition -> {1, 1}]& ),
+  InterpretationFunction->(RowBox[{"Labeled", "[", 
+     RowBox[{#, ",", #2}], "]"}]& )]], "Output",
+ CellChangeTimes->{{3.5787235573383837`*^9, 3.578723574938012*^9}}]
 }, Open  ]]
 },
-WindowSize->{1904, 1011},
-WindowMargins->{{0, Automatic}, {0, Automatic}},
+WindowSize->{1424, 773},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
 FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
 StyleDefinitions->"Default.nb"
 ]
@@ -1259,8 +984,12 @@ CellTagsIndex->{}
 Notebook[{
 Cell[557, 20, 141, 2, 60, "Input"],
 Cell[CellGroupData[{
-Cell[723, 26, 7493, 217, 1111, "Input"],
-Cell[8219, 245, 54418, 995, 646, "Output"]
+Cell[723, 26, 6406, 188, 1102, "Input"],
+Cell[7132, 216, 25353, 445, 319, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[32522, 666, 1474, 41, 253, "Input"],
+Cell[33999, 709, 13855, 256, 563, "Output"]
 }, Open  ]]
 }
 ]
