@@ -104,7 +104,7 @@ void drawFunctions()
         sprintf(buf2, "%.2f %s", val2, unit2);
         graphWin.print(xPoint, val1, buf1, 0.0f, 1.0f, 0.0f, GLUT_BITMAP_TIMES_ROMAN_24);
         graphWin.print(xPoint, val2, buf2, 0.0f, 1.0f, 1.0f, GLUT_BITMAP_TIMES_ROMAN_24);
-        xPoint += graphWin.xMax()/50.0;
+        xPoint += graphWin.xMax()/35.0;
     }
     flagIsFinishDrawingPoint = (xPoint >= graphWin.xMax());
 

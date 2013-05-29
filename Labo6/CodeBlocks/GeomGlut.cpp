@@ -222,7 +222,6 @@ void Display()
       graphWin.drawAxes();
       drawFunctions();
       glFlush();
-     Sleep(10);
     }
 }
 
