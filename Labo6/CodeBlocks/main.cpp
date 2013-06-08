@@ -5,25 +5,22 @@
 
 extern GeomGlut graphWin;
 
-using namespace std;
-
 int main()
 {
 	setlocale(LC_ALL, "frs");
-
 
     int choice = 0;
     do
     {
         clear();
         printHeader();
-        cout << "Please choose wich graphic do you want to see :" << endl;
-        cout << "1) Comparaison for y[t]" << endl;
-        cout << "2) Comparaison for y'[t]" << endl;
-        cout << "3) Comparaison for y''[t]" << endl;
-        cout << "4) Comparaison for y'[t] & y''[t] with coefficient of friction" << endl;
-        cout << "Choice : ";
-        cin >> choice;
+        std::cout << "Please choose wich graphic do you want to see :" << std::endl;
+        std::cout << "1) Comparaison for y[t]" << std::endl;
+        std::cout << "2) Comparaison for y'[t]" << std::endl;
+        std::cout << "3) Comparaison for y''[t]" << std::endl;
+        std::cout << "4) Comparaison for y'[t] & y''[t] with coefficient of friction" << std::endl;
+        std::cout << "Choice : ";
+        std::cin >> choice;
     }while(choice < 1 || choice > 4);
 
 
@@ -56,6 +53,4 @@ int main()
     }
 
     graphWin.initGraphicsWin(1400, 800, xmin, xmax, ymin, ymax, action);
-
-    return(0);
 }

@@ -1,9 +1,7 @@
 #include "functions.h"
 #include "GeomGlut.h"
 #include <iostream>
-#include <cmath>
 #include <string>
-#include <cstdio>
 
 extern GeomGlut graphWin;
 extern GeomGlut::Action action;
