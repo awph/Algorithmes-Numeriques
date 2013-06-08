@@ -6,15 +6,7 @@
 #include <cstdio>
 
 extern GeomGlut graphWin;
-extern long double (*f1)(long double);
-extern long double (*f2)(long double);
-extern bool flagIsFinishDrawingPoint;
-
-static const long double k_g = 9.80665d;
-static const long double k_k = 10.1d;
-static const long double k_m = 80.0d;
-static const long double k_v0 = 0.0d;
-static const long double k_y0 = 5000.0d;
+extern GeomGlut::Action action;
 
 void clear()
 {
@@ -31,82 +23,127 @@ void printHeader()
          << "|===========================================|" << endl;
 }
 
-long double y(long double t)
+long double rungeKutta(const RungeKuttaData& datas)
 {
-    return -1.0d/2.0d*k_g*pow(t,2) + k_v0*t + k_y0;
+	long double(*f)(long double) = datas.f;
+	long double v = datas.v1;
+	long double ft = datas.ft;
+	long double n = datas.n;
+	long double h = (ft-datas.t1)/n;
+
+	while(n-->0)
+	{
+		long double s1 = f(v);
+		long double s2 = f(v+s1*h/2.0);
+		long double s3 = f(v+s2*h/2.0);
+		long double s4 = f(v+s3*h);
+
+		v +=(s1+2*s2+2*s3+s4)*h/6.0;
+	}
+
+	return v;
 }
 
-long double yf(long double t)
+long double simpsons(long double(*rk)(const RungeKuttaData& datas), const RungeKuttaData& datas)
 {
-    return -k_g*pow(k_m,2)/pow(k_k,2)*exp(-k_k/k_m*t) - k_m*k_g/k_k*t + pow(k_m,2)*k_g/pow(k_k,2)+k_y0;
+	int n = datas.n;
+	long double a = datas.t1;
+	long double b = datas.ft;
+
+	RungeKuttaData simpsonData = datas;
+
+    // If n is odd, we transform it to even
+    if(n%2 == 1)
+        ++n;
+
+	simpsonData.n = n;
+
+    long double h = (b-a)/static_cast<long double>(n);
+    long double sum = 0.0d;
+
+    // If j is even, we multiply the result of f(a+j*h) by 2, otherwise by 4
+    for(int j = 1; j < n; ++j)
+	{
+		simpsonData.ft = a+j*h;
+        sum += rk(simpsonData) * ((j%2 == 0) ? 2.0d : 4.0d);
+	}
+
+    // We add f(0) (=f(a)) and f(n) (=f(b)), because j € [1;n[
+    simpsonData.ft = a;
+	sum += rk(simpsonData);
+
+	simpsonData.ft = b;
+    sum += rk(simpsonData);
+
+    return h/3.0*sum;
 }
 
-long double v(long double t)
+//XXX with Coefficient of Friction
+long double aCF(long double v)
 {
-  return -k_g*t + k_v0;
+    return -k_g-k_k/k_m*v;
 }
 
-long double vf(long double t)
-{
-    return k_g*k_m/k_k*exp(-k_k/k_m*t)-k_m*k_g/k_k;
-}
-
-long double a(long double t)
+//XXX Without Coefficient of Friction
+long double aWCF(long double v)
 {
     return -k_g;
 }
 
-long double af(long double t)
+long double v(const RungeKuttaData& data)
 {
-    return -k_g*exp(-k_k/k_m*t);
+    return rungeKutta(data);
+}
+
+long double y(const RungeKuttaData& data)
+{
+    return k_y0+simpsons(&rungeKutta, data);
 }
 
 void drawFunctions()
 {
-    const float STEP = 1e-4;
-    static float xPoint = 0;
-    glPointSize(2.0f);
-    for(float x = 0; x < graphWin.xMax(); x += STEP)
+    const long double STEP = 0.4;
+    glPointSize(4.0f);
+
+    long double t0 = 0.0;
+    long double ft = 80.0;
+    long double n = 300.0;
+    long double v0 = k_v0;
+    RungeKuttaData dataCF(&aCF,t0,v0,ft,n);//With CF
+    RungeKuttaData dataWCF(dataCF);//WithoutCF
+    dataWCF.f = &aWCF;
+
+    for(long double x = 0; x < graphWin.xMax(); x += STEP)
     {
-        graphWin.plot(x, f1(x), 0.0f, 1.0f, 0.0f);
-        graphWin.plot(x, f2(x), 0.0f, 1.0f, 1.0f);
+        long double y1 = 0.0;
+        long double y2 = 0.0;
+
+        dataCF.ft = dataWCF.ft = x;
+
+        if(action == GeomGlut::Y)
+        {
+            y1 = k_y0+simpsons(&rungeKutta, dataCF);
+            y2 = k_y0+simpsons(&rungeKutta, dataWCF);
+        }
+        else if(action == GeomGlut::V)
+        {
+            y1 = k_v0+rungeKutta(dataCF);
+            y2 = k_v0+rungeKutta(dataWCF);
+        }
+        else if(action == GeomGlut::A)
+        {
+            y1 = aCF(k_v0+rungeKutta(dataCF));
+            y2 = aWCF(k_v0+rungeKutta(dataWCF));
+        }
+        else if(action == GeomGlut::AV)
+        {
+            y1 = k_v0+rungeKutta(dataCF);
+            y2 = aCF(y1);
+        }
+
+        graphWin.plot(x, y1, 1.0f, 0.0f, 0.0f);
+        graphWin.plot(x, y2, 0.0f, 1.0f, 1.0f);
     }
-
-    if(!flagIsFinishDrawingPoint)
-    {
-        glPointSize(10.0f);
-        float val1 = f1(xPoint);
-        float val2 = f2(xPoint);
-        graphWin.plot(xPoint, val1, 1.0f, 0.0f, 0.0f);
-        graphWin.plot(xPoint, val2, 1.0f, 0.0f, 0.0f);
-
-        char buf1[30];
-        char buf2[30];
-
-        char unit1[10];
-        char unit2[10];
-
-        if(f1==&y)
-            strcpy(unit1,"m");
-        else if(f1==&v)
-            strcpy(unit1,"m/s");
-        else
-            strcpy(unit1,"m/s2");
-
-        if(f2==&yf)
-            strcpy(unit2,"m");
-        else if(f2==&vf)
-            strcpy(unit2,"m/s");
-        else
-            strcpy(unit2,"m/s2");
-
-        sprintf(buf1, "%.2f %s", val1, unit1);
-        sprintf(buf2, "%.2f %s", val2, unit2);
-        graphWin.print(xPoint, val1, buf1, 0.0f, 1.0f, 0.0f, GLUT_BITMAP_TIMES_ROMAN_24);
-        graphWin.print(xPoint, val2, buf2, 0.0f, 1.0f, 1.0f, GLUT_BITMAP_TIMES_ROMAN_24);
-        xPoint += graphWin.xMax()/35.0;
-    }
-    flagIsFinishDrawingPoint = (xPoint >= graphWin.xMax());
 
     clear();
     printHeader();
@@ -116,8 +153,7 @@ void drawFunctions()
     std::string legendF1 = "";
     std::string legendF2 = "";
 
-
-    if(f1==&y && f2==&yf)
+    if(action == GeomGlut::Y)
     {
         graphWin.print(78,20,"t[s]");
         graphWin.print(0,4850,"y[m]");
@@ -125,34 +161,34 @@ void drawFunctions()
         graphWin.print(31.9,0,"31.933 s");
         graphWin.print(72.3,0,"72.2895 s");
         legendF1 = "y(t)";
-        legendF2 = "yf(t)";
+        legendF2 = "y(t) with CF";
     }
-    else if(f1==&v && f2==&vf)
+    else if(action == GeomGlut::V)
     {
         graphWin.print(78,-20,"t[s]");
         graphWin.print(0,-780,"v[m/s]");
         graphWin.print(73,-95,"-77.6732 m/s");
         graphWin.print(73,-790,"-784.532 m/s");
         legendF1 = "v(t)";
-        legendF2 = "vf(t)";
+        legendF2 = "v(t) with CF";
     }
-    else if(f1==&a && f2==&af)
+    else if(action == GeomGlut::A)
     {
         graphWin.print(78,0,"t[s]");
         graphWin.print(0,-9.5,"a[m/s2]");
         graphWin.print(-2,-10,"9.80665 m/s2");
         legendF1 = "a(t)";
-        legendF2 = "af(t)";
+        legendF2 = "a(t) with CF";
     }
-    else if(f1==&af && f2==&vf)
+    else if(action == GeomGlut::AV)
     {
         graphWin.print(78,0,"t[s]");
         graphWin.print(0,-75,"a[m/s2]",0.0f,1.0f,0.0f);
         graphWin.print(0,-78,"v[m/s]",0.0f,1.0f,1.0f);
         graphWin.print(-5,-10,"9.80665 m/s2");
         graphWin.print(72,-80,"-77.6732  m/s");
-        legendF1 = "af(t)";
-        legendF2 = "vf(t)";
+        legendF1 = "a(t) with CF";
+        legendF2 = "v(t) with CF";
     }
 
     std::cout << "Graphical Information : " << std::endl

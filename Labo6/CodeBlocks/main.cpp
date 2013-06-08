@@ -32,34 +32,30 @@ int main()
     double ymin = -5;
     double ymax = 5;
 
-    long double (*f1)(long double);
-    long double (*f2)(long double);
+    GeomGlut::Action action;
+
     if(choice == 1)
     {
-        f1 = &y;
-        f2 = &yf;
+        action = GeomGlut::Y;
         ymax = 5050;
     }
     else if(choice == 2)
     {
-        f1 = &v;
-        f2 = &vf;
+        action = GeomGlut::V;
         ymin = -800;
     }
     else if(choice == 3)
     {
-        f1 = &a;
-        f2 = &af;
+        action = GeomGlut::A;
         ymin = -10;
     }
     else
     {
-        f1 = &af;
-        f2 = &vf;
+        action = GeomGlut::AV;
         ymin = -80;
     }
 
-    graphWin.initGraphicsWin(1400, 800, xmin, xmax, ymin, ymax, f1, f2);
+    graphWin.initGraphicsWin(1400, 800, xmin, xmax, ymin, ymax, action);
 
     return(0);
 }

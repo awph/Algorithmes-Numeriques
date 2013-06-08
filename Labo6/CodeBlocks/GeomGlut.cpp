@@ -2,9 +2,7 @@
 #include "functions.h"
 
 GeomGlut graphWin;
-long double (*f1)(long double);
-long double (*f2)(long double);
-bool flagIsFinishDrawingPoint;
+GeomGlut::Action action;
 
 GeomGlut::GeomGlut( void )
 {
@@ -35,11 +33,9 @@ long double GeomGlut::findSmartStepX( long double workingMinX, long double worki
   return( ratio );
 }
 
-void GeomGlut::initGraphicsWin( unsigned int pixelWinX, unsigned int pixelWinY, double _xMin, double _xMax, double _yMin, double _yMax, long double (*_f1)(long double), long double (*_f2)(long double))
+void GeomGlut::initGraphicsWin( unsigned int pixelWinX, unsigned int pixelWinY, double _xMin, double _xMax, double _yMin, double _yMax, Action _action)
 {
-  f1 = _f1;
-  f2 = _f2;
-  flagIsFinishDrawingPoint = false;
+  action = _action;
   if(_xMax-_xMin<=0)
         return;
 
@@ -63,7 +59,6 @@ void GeomGlut::initGraphicsWin( unsigned int pixelWinX, unsigned int pixelWinY, 
 
   // Initialiser la couleur du fond (blanc)
 
-  glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
   glEnable(GL_BLEND);
   //glClearColor(0.9f, 0.9f, 0.9f, 1.0f);
 glClearColor(0.0,0.0,0.0,0.0);
@@ -215,14 +210,11 @@ void GeomGlut::segment( GLfloat x1, GLfloat y1, GLfloat x2, GLfloat y2, GLfloat 
 
 void Display()
 {
-    while(!flagIsFinishDrawingPoint)
-    {
-      glClear(GL_COLOR_BUFFER_BIT);
+  glClear(GL_COLOR_BUFFER_BIT);
 
-      graphWin.drawAxes();
-      drawFunctions();
-      glFlush();
-    }
+  graphWin.drawAxes();
+  drawFunctions();
+  glFlush();
 }
 
 void Reshape(int w, int h)

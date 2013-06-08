@@ -29,6 +29,8 @@ typedef struct
 class GeomGlut
 {
   public:
+    enum Action {A,V,Y,AV};
+
     //--- Constructor ---
     GeomGlut( void );
     //--- Destructor ---
@@ -39,7 +41,7 @@ class GeomGlut
     // <none>
 
     //--- Public methods ---
-    void initGraphicsWin( unsigned int pixelWinX, unsigned int pixelWinY, double xMin, double xMax, double yMin, double yMax, long double (*_f1)(long double), long double (*_f2)(long double));
+    void initGraphicsWin( unsigned int pixelWinX, unsigned int pixelWinY, double xMin, double xMax, double yMin, double yMax, Action _action);
 
     void drawAxes();
     void plot( GLfloat x, GLfloat y );
