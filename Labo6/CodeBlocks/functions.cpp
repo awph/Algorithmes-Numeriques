@@ -105,7 +105,7 @@ void drawFunctions()
 
     long double t0 = 0.0;
     long double ft = 80.0;
-    long double n = 300.0;
+    long double n = 494.0;
     long double v0 = k_v0;
     RungeKuttaData dataCF(&aCF,t0,v0,ft,n);//With CF
     RungeKuttaData dataWCF(dataCF);//WithoutCF
